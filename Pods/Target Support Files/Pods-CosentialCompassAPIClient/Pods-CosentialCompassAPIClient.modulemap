@@ -1,0 +1,6 @@
+framework module Pods_CosentialCompassAPIClient {
+  umbrella header "Pods-CosentialCompassAPIClient-umbrella.h"
+
+  export *
+  module * { export * }
+}

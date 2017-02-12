@@ -10,6 +10,8 @@
 		3362CC171E4EF93B00743893 /* CosentialCompassAPIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3362CC0D1E4EF93B00743893 /* CosentialCompassAPIClient.framework */; };
 		3362CC1C1E4EF93C00743893 /* CosentialCompassAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3362CC1B1E4EF93C00743893 /* CosentialCompassAPIClientTests.swift */; };
 		3362CC1E1E4EF93C00743893 /* CosentialCompassAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3362CC101E4EF93B00743893 /* CosentialCompassAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C02AA8D23A1638AE3F1785C9 /* Pods_CosentialCompassAPIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796B7A81C60FFD9F16AE8849 /* Pods_CosentialCompassAPIClient.framework */; };
+		D0F84C7C4A60B293BF9F6952 /* Pods_CosentialCompassAPIClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5291FE4E666ACC8256420E56 /* Pods_CosentialCompassAPIClientTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +25,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DA946119538234DEF00172A /* Pods-CosentialCompassAPIClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CosentialCompassAPIClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CosentialCompassAPIClient/Pods-CosentialCompassAPIClient.debug.xcconfig"; sourceTree = "<group>"; };
 		3362CC0D1E4EF93B00743893 /* CosentialCompassAPIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CosentialCompassAPIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3362CC101E4EF93B00743893 /* CosentialCompassAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CosentialCompassAPIClient.h; sourceTree = "<group>"; };
 		3362CC111E4EF93B00743893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3362CC161E4EF93B00743893 /* CosentialCompassAPIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CosentialCompassAPIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3362CC1B1E4EF93C00743893 /* CosentialCompassAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosentialCompassAPIClientTests.swift; sourceTree = "<group>"; };
 		3362CC1D1E4EF93C00743893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C05596E975F4D0D4C9199B5 /* Pods-CosentialCompassAPIClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CosentialCompassAPIClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CosentialCompassAPIClientTests/Pods-CosentialCompassAPIClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		5291FE4E666ACC8256420E56 /* Pods_CosentialCompassAPIClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CosentialCompassAPIClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CE93B09D5407118D3C3DD2D /* Pods-CosentialCompassAPIClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CosentialCompassAPIClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-CosentialCompassAPIClient/Pods-CosentialCompassAPIClient.release.xcconfig"; sourceTree = "<group>"; };
+		796B7A81C60FFD9F16AE8849 /* Pods_CosentialCompassAPIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CosentialCompassAPIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A20410F0E489B4F88EC88C3 /* Pods-CosentialCompassAPIClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CosentialCompassAPIClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CosentialCompassAPIClientTests/Pods-CosentialCompassAPIClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02AA8D23A1638AE3F1785C9 /* Pods_CosentialCompassAPIClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3362CC171E4EF93B00743893 /* CosentialCompassAPIClient.framework in Frameworks */,
+				D0F84C7C4A60B293BF9F6952 /* Pods_CosentialCompassAPIClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +66,8 @@
 				3362CC0F1E4EF93B00743893 /* CosentialCompassAPIClient */,
 				3362CC1A1E4EF93B00743893 /* CosentialCompassAPIClientTests */,
 				3362CC0E1E4EF93B00743893 /* Products */,
+				4AE0CB8528470CE49AA22E61 /* Pods */,
+				8EEBE76EC8E69FDDFC31D5CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +98,26 @@
 			path = CosentialCompassAPIClientTests;
 			sourceTree = "<group>";
 		};
+		4AE0CB8528470CE49AA22E61 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DA946119538234DEF00172A /* Pods-CosentialCompassAPIClient.debug.xcconfig */,
+				6CE93B09D5407118D3C3DD2D /* Pods-CosentialCompassAPIClient.release.xcconfig */,
+				8A20410F0E489B4F88EC88C3 /* Pods-CosentialCompassAPIClientTests.debug.xcconfig */,
+				3C05596E975F4D0D4C9199B5 /* Pods-CosentialCompassAPIClientTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8EEBE76EC8E69FDDFC31D5CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				796B7A81C60FFD9F16AE8849 /* Pods_CosentialCompassAPIClient.framework */,
+				5291FE4E666ACC8256420E56 /* Pods_CosentialCompassAPIClientTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -104,10 +136,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3362CC211E4EF93C00743893 /* Build configuration list for PBXNativeTarget "CosentialCompassAPIClient" */;
 			buildPhases = (
+				E24B45670AA34AF310E1B361 /* [CP] Check Pods Manifest.lock */,
 				3362CC081E4EF93B00743893 /* Sources */,
 				3362CC091E4EF93B00743893 /* Frameworks */,
 				3362CC0A1E4EF93B00743893 /* Headers */,
 				3362CC0B1E4EF93B00743893 /* Resources */,
+				471D6742E6E7DD1A1E878416 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3362CC241E4EF93C00743893 /* Build configuration list for PBXNativeTarget "CosentialCompassAPIClientTests" */;
 			buildPhases = (
+				740339F8B8669A14B8B7C1CF /* [CP] Check Pods Manifest.lock */,
 				3362CC121E4EF93B00743893 /* Sources */,
 				3362CC131E4EF93B00743893 /* Frameworks */,
 				3362CC141E4EF93B00743893 /* Resources */,
+				8D8335E0644F0249858B4A67 /* [CP] Embed Pods Frameworks */,
+				BE3AB7294325BAF5725D1386 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,6 +226,84 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		471D6742E6E7DD1A1E878416 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CosentialCompassAPIClient/Pods-CosentialCompassAPIClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		740339F8B8669A14B8B7C1CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8D8335E0644F0249858B4A67 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CosentialCompassAPIClientTests/Pods-CosentialCompassAPIClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE3AB7294325BAF5725D1386 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CosentialCompassAPIClientTests/Pods-CosentialCompassAPIClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E24B45670AA34AF310E1B361 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3362CC081E4EF93B00743893 /* Sources */ = {
@@ -318,6 +433,7 @@
 		};
 		3362CC221E4EF93C00743893 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DA946119538234DEF00172A /* Pods-CosentialCompassAPIClient.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -336,6 +452,7 @@
 		};
 		3362CC231E4EF93C00743893 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CE93B09D5407118D3C3DD2D /* Pods-CosentialCompassAPIClient.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -354,6 +471,7 @@
 		};
 		3362CC251E4EF93C00743893 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A20410F0E489B4F88EC88C3 /* Pods-CosentialCompassAPIClientTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = CosentialCompassAPIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -365,6 +483,7 @@
 		};
 		3362CC261E4EF93C00743893 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C05596E975F4D0D4C9199B5 /* Pods-CosentialCompassAPIClientTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = CosentialCompassAPIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -393,6 +512,7 @@
 				3362CC231E4EF93C00743893 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3362CC241E4EF93C00743893 /* Build configuration list for PBXNativeTarget "CosentialCompassAPIClientTests" */ = {
 			isa = XCConfigurationList;
@@ -401,6 +521,7 @@
 				3362CC261E4EF93C00743893 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
