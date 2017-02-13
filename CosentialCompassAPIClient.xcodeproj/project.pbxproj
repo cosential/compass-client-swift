@@ -10,6 +10,7 @@
 		3362CC171E4EF93B00743893 /* CosentialCompassAPIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3362CC0D1E4EF93B00743893 /* CosentialCompassAPIClient.framework */; };
 		3362CC1C1E4EF93C00743893 /* CosentialCompassAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3362CC1B1E4EF93C00743893 /* CosentialCompassAPIClientTests.swift */; };
 		3362CC1E1E4EF93C00743893 /* CosentialCompassAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 3362CC101E4EF93B00743893 /* CosentialCompassAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3382E90E1E51390A001B03FF /* CosentialCompassAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3382E90D1E51390A001B03FF /* CosentialCompassAPIClient.swift */; };
 		C02AA8D23A1638AE3F1785C9 /* Pods_CosentialCompassAPIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796B7A81C60FFD9F16AE8849 /* Pods_CosentialCompassAPIClient.framework */; };
 		D0F84C7C4A60B293BF9F6952 /* Pods_CosentialCompassAPIClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5291FE4E666ACC8256420E56 /* Pods_CosentialCompassAPIClientTests.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		3362CC161E4EF93B00743893 /* CosentialCompassAPIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CosentialCompassAPIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3362CC1B1E4EF93C00743893 /* CosentialCompassAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosentialCompassAPIClientTests.swift; sourceTree = "<group>"; };
 		3362CC1D1E4EF93C00743893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3382E90D1E51390A001B03FF /* CosentialCompassAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosentialCompassAPIClient.swift; sourceTree = "<group>"; };
 		3C05596E975F4D0D4C9199B5 /* Pods-CosentialCompassAPIClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CosentialCompassAPIClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CosentialCompassAPIClientTests/Pods-CosentialCompassAPIClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		5291FE4E666ACC8256420E56 /* Pods_CosentialCompassAPIClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CosentialCompassAPIClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE93B09D5407118D3C3DD2D /* Pods-CosentialCompassAPIClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CosentialCompassAPIClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-CosentialCompassAPIClient/Pods-CosentialCompassAPIClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				3362CC101E4EF93B00743893 /* CosentialCompassAPIClient.h */,
 				3362CC111E4EF93B00743893 /* Info.plist */,
+				3382E90D1E51390A001B03FF /* CosentialCompassAPIClient.swift */,
 			);
 			path = CosentialCompassAPIClient;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				TargetAttributes = {
 					3362CC0C1E4EF93B00743893 = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					3362CC151E4EF93B00743893 = {
@@ -310,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3382E90E1E51390A001B03FF /* CosentialCompassAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0DA946119538234DEF00172A /* Pods-CosentialCompassAPIClient.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -446,6 +452,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cosential.compass.apiclient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -454,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6CE93B09D5407118D3C3DD2D /* Pods-CosentialCompassAPIClient.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -473,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A20410F0E489B4F88EC88C3 /* Pods-CosentialCompassAPIClientTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = CosentialCompassAPIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = s.CosentialCompassAPIClientTests;
@@ -485,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C05596E975F4D0D4C9199B5 /* Pods-CosentialCompassAPIClientTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = CosentialCompassAPIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = s.CosentialCompassAPIClientTests;
