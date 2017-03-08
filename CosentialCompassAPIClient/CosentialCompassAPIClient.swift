@@ -26,7 +26,7 @@ public class CosentialCompassAPIClient {
     
     ////////////////////////////////
     
-    class func callAPI(type: HTTPMethod, name: String, endPoint: String, parameters: [String : String], headers: HTTPHeaders, userInfo: Any) {
+    class func callAPI(type: HTTPMethod, name: String, endPoint: String, parameters: [String : Any], headers: HTTPHeaders, userInfo: Any) {
         
         let newHeader = headers
         
