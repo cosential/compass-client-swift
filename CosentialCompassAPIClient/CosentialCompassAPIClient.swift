@@ -157,12 +157,10 @@ public class CosentialCompassAPIClient {
         callAPI(type: .delete, name: "deleteContactTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
-    public class func getAllContacts() {
-        let endPoint = SERVER_URL + "contacts/search"
-        var parameters = [String : String]()
-        parameters["q"] = "customField1:FullContact"
+    public class func getContacts(parameters: [String : Any]) {
+        let endPoint = SERVER_URL + "contacts"
         
-        callAPI(type: HTTPMethod.get, name: "getAllContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
+        callAPI(type: HTTPMethod.get, name: "getContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
     }
     
     public class func getContactDetail(_ contactId: Int) {
