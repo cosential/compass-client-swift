@@ -23,6 +23,7 @@ public class CosentialCompassAPIClient {
     static var user = ""
     static var firmCode = ""
     static var logText = ""
+    static var debugMode = false
     
     ////////////////////////////////
     
@@ -31,18 +32,19 @@ public class CosentialCompassAPIClient {
         let newHeader = headers
         
         Alamofire.request(endPoint, method: type, parameters: parameters, encoding: URLEncoding.default, headers: newHeader).validate().responseJSON { (response) in
-            print(response)
+            if (debugMode) {
+                print(response)
+            }
+            
             if (name == "deleteContactTypes") {
                 self.delegate!.onSuccess(apiName: name, data: "" as AnyObject, userInfo: userInfo)
                 return
             }
             switch response.result {
             case.success(let value):
-                print(value)
                 self.delegate!.onSuccess(apiName: name, data: value as AnyObject, userInfo: userInfo)
                 break
             case.failure(let error):
-                print(error)
                 let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(parameters)\n\n"
                 logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
                 self.delegate!.onError(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
@@ -52,8 +54,6 @@ public class CosentialCompassAPIClient {
     }
     
     class func callAPIWithBodyData(type: String, name: String, endPoint: String, data: [[String : Any]], userInfo: Any) {
-        print(data)
-        
         var request = URLRequest(url: URL.init(string: endPoint)!)
         request.httpMethod = type
         request.allHTTPHeaderFields = AuthHeader
@@ -74,13 +74,13 @@ public class CosentialCompassAPIClient {
         
         if (name == "addContactFrontImage" || name == "addContactBackImage") {
             Alamofire.request(request).responseString { response in
-                print(response)
+                if (debugMode) {
+                    print(response)
+                }
                 switch response.result {
                 case .success(let value):
-                    print(value)
                     self.delegate!.onSuccess(apiName: name, data: value as AnyObject, userInfo: userInfo)
                 case .failure(let error):
-                    print(error)
                     let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
                     logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
                     self.delegate!.onError(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
@@ -90,13 +90,13 @@ public class CosentialCompassAPIClient {
         else
         {
             Alamofire.request(request).responseJSON { response in
-                print(response)
+                if (debugMode) {
+                    print(response)
+                }
                 switch response.result {
                 case .success(let value):
-                    print(value)
                     self.delegate!.onSuccess(apiName: name, data: value as AnyObject, userInfo: userInfo)
                 case .failure(let error):
-                    print(error)
                     let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
                     logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
                     self.delegate!.onError(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
@@ -114,6 +114,10 @@ public class CosentialCompassAPIClient {
     public class func setConfiguration(_ url: String, key: String) {
         self.SERVER_URL = url
         self.API_KEY = key
+    }
+    
+    public class func setDebugMode(_ isEnable: Bool) {
+        self.debugMode = isEnable
     }
     
     public class func getLog() -> String {
