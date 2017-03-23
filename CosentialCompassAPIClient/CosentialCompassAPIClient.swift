@@ -290,5 +290,10 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
     }
     
+    public class func getProjects(parameters: [String : Any], userInfo: Any) {
+        let endPoint = SERVER_URL + "projects"
+        callAPI(type: .get, name: "getProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+    }
+    
     ////////////////////////////////
 }
