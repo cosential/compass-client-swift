@@ -144,6 +144,13 @@ public class CosentialCompassAPIClient {
     
     ////////////////////////////////
     
+    public class func getSchema(_ element: String, parameters: [String : Any]) {
+        let endPoint = "\(SERVER_URL)/\(element)/schema"
+        callAPI(type: .get, name: "getSchema", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: element)
+    }
+    
+    ////////////////////////////////
+    
     //  Contact
     
     public class func getContactTypes() {
@@ -298,6 +305,13 @@ public class CosentialCompassAPIClient {
     public class func getOffices(parameters: [String : Any], userInfo: Any) {
         let endPoint = SERVER_URL + "contacts/offices"
         callAPI(type: .get, name: "getOffices", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+    }
+    
+    ////////////////////////////////
+    
+    public class func getProjectFirmOrg(_ firmOrgName: String) {
+        let endPoint = "\(SERVER_URL)/projects/firmOrgName"
+        callAPI(type: .get, name: "getProjectFirmOrg", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: firmOrgName)
     }
     
     ////////////////////////////////
