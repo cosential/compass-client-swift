@@ -310,7 +310,7 @@ public class CosentialCompassAPIClient {
     ////////////////////////////////
     
     public class func getProjectFirmOrg(_ firmOrgName: String, parameters: [String : Any]) {
-        let endPoint = "\(SERVER_URL)/projects/firmOrgName"
+        let endPoint = "\(SERVER_URL)/projects/\(firmOrgName)"
         callAPI(type: .get, name: "getProjectFirmOrg", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: firmOrgName)
     }
     
