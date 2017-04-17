@@ -40,10 +40,12 @@ public class CosentialCompassAPIClient {
                 self.delegate!.onSuccess(apiName: name, data: "" as AnyObject, userInfo: userInfo)
                 return
             }
+            
             switch response.result {
             case.success(let value):
                 self.delegate!.onSuccess(apiName: name, data: value as AnyObject, userInfo: userInfo)
                 break
+                
             case.failure(let error):
                 let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(parameters)\n\n"
                 logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
@@ -80,10 +82,13 @@ public class CosentialCompassAPIClient {
                 switch response.result {
                 case .success(let value):
                     self.delegate!.onSuccess(apiName: name, data: value as AnyObject, userInfo: userInfo)
+                    break
+                    
                 case .failure(let error):
                     let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
                     logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
                     self.delegate!.onError(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
+                    break
                 }
             }
         }
@@ -96,10 +101,13 @@ public class CosentialCompassAPIClient {
                 switch response.result {
                 case .success(let value):
                     self.delegate!.onSuccess(apiName: name, data: value as AnyObject, userInfo: userInfo)
+                    break
+                    
                 case .failure(let error):
                     let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
                     logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
                     self.delegate!.onError(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
+                    break
                 }
             }
         }
@@ -139,7 +147,7 @@ public class CosentialCompassAPIClient {
         let base64Credentials = credentialData.base64EncodedString()
         AuthHeader["Authorization"] = "Basic \(base64Credentials)"
         
-        callAPI(type: HTTPMethod.get, name: "signIn", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "signIn", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
     ////////////////////////////////
@@ -171,18 +179,18 @@ public class CosentialCompassAPIClient {
     public class func getContacts(parameters: [String : Any], info: String) {
         let endPoint = SERVER_URL + "contacts"
         
-        callAPI(type: HTTPMethod.get, name: "getContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+        callAPI(type: .get, name: "getContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
     public class func getContactDetail(_ contactId: Int) {
         let endPoint = SERVER_URL + "contacts/\(contactId)"
         
-        callAPI(type: HTTPMethod.get, name: "getContactDetail", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "getContactDetail", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
     public class func searchContacts(parameters: [String : Any]) {
         let endPoint = SERVER_URL + "contacts/search"
-        callAPI(type: HTTPMethod.get, name: "searchContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "searchContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
     }
     
     public class func searchContactsWithKeyword(keyword: String) {
@@ -190,7 +198,7 @@ public class CosentialCompassAPIClient {
         var parameters = [String : String]()
         parameters["q"] = keyword
         
-        callAPI(type: HTTPMethod.get, name: "searchContactsWithKeyword", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "searchContactsWithKeyword", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
     }
     
     public class func addContact(parameters: [String : Any]) {
@@ -205,7 +213,7 @@ public class CosentialCompassAPIClient {
     
     public class func getContactAddresses(contactId: Int) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/addresses"
-        callAPI(type: HTTPMethod.get, name: "getContactAddresses", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "getContactAddresses", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
     public class func addContactAddresses(contactId: Int, parameters: [[String : Any]], type: String) {
@@ -220,7 +228,7 @@ public class CosentialCompassAPIClient {
     
     public class func getContactFrontImage(contactId: Int) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardfront"
-        callAPI(type: HTTPMethod.get, name: "getContactFrontImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "getContactFrontImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
     public class func addContactFrontImage(contactId: Int, parameters: [String : Any]) {
@@ -267,7 +275,7 @@ public class CosentialCompassAPIClient {
         var parameters = [String : String]()
         parameters["q"] = keyword
         
-        callAPI(type: HTTPMethod.get, name: "searchCompaniesWithKeyword", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "searchCompaniesWithKeyword", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
     }
     
     public class func getCompanies(parameters: [String : Any], info: String) {
