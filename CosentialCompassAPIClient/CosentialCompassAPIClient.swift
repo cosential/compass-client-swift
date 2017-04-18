@@ -226,24 +226,49 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "PUT", name: "updateContactAddress", endPoint: endPoint, data: parameters, userInfo: type)
     }
     
-    public class func getContactFrontImage(contactId: Int) {
+    public class func getContactCardFrontImage(contactId: Int) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardfront"
-        callAPI(type: .get, name: "getContactFrontImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "getContactCardFrontImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
-    public class func addContactFrontImage(contactId: Int, parameters: [String : Any]) {
-        let endPoint = SERVER_URL + "images/contact/\(contactId)/cardfront"
-        callAPIWithBodyData(type: "PUT", name: "addContactFrontImage", endPoint: endPoint, data: [parameters], userInfo: "")
-    }
-    
-    public class func addContactBackImage(contactId: Int, parameters: [String : Any]) {
+    public class func getContactCardBackImage(contactId: Int) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardback"
-        callAPIWithBodyData(type: "PUT", name: "addContactBackImage", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPI(type: .get, name: "getContactCardBackImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
-    public class func deleteContact(contactId: Int) {
-        let endPoint = SERVER_URL + "contacts/\(contactId)"
-        callAPI(type: .delete, name: "deleteContact", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: contactId)
+    public class func getContactProfilePicture(contactId: Int) {
+        let endPoint = SERVER_URL + "images/contact/\(contactId)/profilepicture"
+        callAPI(type: .get, name: "getContactProfilePicture", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+    }
+    
+    public class func addContactCardFrontImage(contactId: Int, parameters: [String : Any]) {
+        let endPoint = SERVER_URL + "images/contact/\(contactId)/cardfront"
+        callAPIWithBodyData(type: "PUT", name: "addContactCardFrontImage", endPoint: endPoint, data: [parameters], userInfo: "")
+    }
+    
+    public class func addContactCardBackImage(contactId: Int, parameters: [String : Any]) {
+        let endPoint = SERVER_URL + "images/contact/\(contactId)/cardback"
+        callAPIWithBodyData(type: "PUT", name: "addContactCardBackImage", endPoint: endPoint, data: [parameters], userInfo: "")
+    }
+    
+    public class func addContactProfilePicture(contactId: Int, parameters: [String : Any]) {
+        let endPoint = SERVER_URL + "images/contact/\(contactId)/profilepicture"
+        callAPIWithBodyData(type: "PUT", name: "addContactProfilePicture", endPoint: endPoint, data: [parameters], userInfo: "")
+    }
+    
+    public class func deleteContactCardFrontImage(contactId: Int) {
+        let endPoint = SERVER_URL + "images/contact/\(contactId)/cardfront"
+        callAPI(type: .delete, name: "deleteContactCardFrontImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+    }
+    
+    public class func deleteContactCardBackImage(contactId: Int) {
+        let endPoint = SERVER_URL + "images/contact/\(contactId)/cardback"
+        callAPI(type: .delete, name: "deleteContactCardBackImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+    }
+    
+    public class func deleteContactProfilePicture(contactId: Int) {
+        let endPoint = SERVER_URL + "images/contact/\(contactId)/profilepicture"
+        callAPI(type: .delete, name: "deleteContactProfilePicture", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
     public class func addContactRelationships(_ contactId: Int, parameters: [[String : Any]]) {
