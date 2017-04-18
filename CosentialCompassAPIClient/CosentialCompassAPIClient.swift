@@ -74,7 +74,7 @@ public class CosentialCompassAPIClient {
             }
         }
         
-        if (name == "addContactFrontImage" || name == "addContactBackImage") {
+        if (name == "addContactCardFrontImage" || name == "addContactCardBackImage" || name == "addContactProfilePicture") {
             Alamofire.request(request).responseString { response in
                 if (debugMode) {
                     print(response)
