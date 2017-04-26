@@ -66,11 +66,11 @@ public class CosentialCompassAPIClient {
             request.httpBody = try! JSONSerialization.data(withJSONObject: data)
         }
         else if (type == "PUT") {
-            if (name != "updateContactAddress") {
-                request.httpBody = try! JSONSerialization.data(withJSONObject: data[0])
+            if (name == "updateContactAddresses" || name == "updateCompanyAddresses") {
+                request.httpBody = try! JSONSerialization.data(withJSONObject: data)
             }
             else {
-                request.httpBody = try! JSONSerialization.data(withJSONObject: data)
+                request.httpBody = try! JSONSerialization.data(withJSONObject: data[0])
             }
         }
         
@@ -221,9 +221,9 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "POST", name: "addContactAddresses", endPoint: endPoint, data: parameters, userInfo: type)
     }
     
-    public class func updateContactAddress(contactId: Int, parameters: [[String : Any]], type: String) {
+    public class func updateContactAddresses(contactId: Int, parameters: [[String : Any]], type: String) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/addresses"
-        callAPIWithBodyData(type: "PUT", name: "updateContactAddress", endPoint: endPoint, data: parameters, userInfo: type)
+        callAPIWithBodyData(type: "PUT", name: "updateContactAddresses", endPoint: endPoint, data: parameters, userInfo: type)
     }
     
     public class func getContactCardFrontImage(contactId: Int) {
@@ -328,6 +328,11 @@ public class CosentialCompassAPIClient {
     public class func addCompanyAddresses(companyId: Int, parameters: [String : Any]) {
         let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
         callAPIWithBodyData(type:"POST", name: "addCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: "")
+    }
+    
+    public class func updateCompanyAddresses(companyId: Int, parameters: [String : Any]) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
+        callAPIWithBodyData(type:"PUT", name: "updateCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
     public class func updateCompany(companyId: Int, parameters: [String : Any]) {
