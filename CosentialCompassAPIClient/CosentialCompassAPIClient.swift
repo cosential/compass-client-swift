@@ -320,7 +320,7 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type:"POST", name: "addCompany", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
-    public class func getCompanyAddresses(companyId: Int, parameters: [String : Any], userInfo: Any) {
+    public class func getCompanyAddresses(companyId: Int, parameters: [String : Any], userInfo: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
         callAPI(type: .get, name: "getCompanyAddresses", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
     }
@@ -347,17 +347,17 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type:"POST", name: "addLead", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
-    public class func getOpportunities(parameters: [String : Any], userInfo: Any) {
+    public class func getOpportunities(parameters: [String : Any], userInfo: Any?) {
         let endPoint = SERVER_URL + "opportunities"
         callAPI(type: .get, name: "getOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
     }
     
-    public class func getProjects(parameters: [String : Any], userInfo: Any) {
+    public class func getProjects(parameters: [String : Any], userInfo: Any?) {
         let endPoint = SERVER_URL + "projects"
         callAPI(type: .get, name: "getProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
     }
     
-    public class func getOffices(parameters: [String : Any], userInfo: Any) {
+    public class func getOffices(parameters: [String : Any], userInfo: Any?) {
         let endPoint = SERVER_URL + "contacts/offices"
         callAPI(type: .get, name: "getOffices", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
     }
