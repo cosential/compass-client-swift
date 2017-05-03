@@ -9,8 +9,8 @@
 import Alamofire
 
 public protocol CosentialCompassAPIClientDelegate {
-    func onSuccess(apiName: String, data: AnyObject, userInfo: Any)
-    func onError(apiName: String, errorInfo: AnyObject, userInfo: Any)
+    func onSuccess(apiName: String, data: AnyObject, userInfo: Any?)
+    func onError(apiName: String, errorInfo: AnyObject, userInfo: Any?)
 }
 
 public class CosentialCompassAPIClient {
@@ -27,7 +27,7 @@ public class CosentialCompassAPIClient {
     
     ////////////////////////////////
     
-    class func callAPI(type: HTTPMethod, name: String, endPoint: String, parameters: [String : Any], headers: HTTPHeaders, userInfo: Any) {
+    class func callAPI(type: HTTPMethod, name: String, endPoint: String, parameters: [String : Any], headers: HTTPHeaders, userInfo: Any?) {
         
         let newHeader = headers
         
@@ -55,7 +55,7 @@ public class CosentialCompassAPIClient {
         }
     }
     
-    class func callAPIWithBodyData(type: String, name: String, endPoint: String, data: [[String : Any]], userInfo: Any) {
+    class func callAPIWithBodyData(type: String, name: String, endPoint: String, data: [[String : Any]], userInfo: Any?) {
         var request = URLRequest(url: URL.init(string: endPoint)!)
         request.httpMethod = type
         request.allHTTPHeaderFields = AuthHeader
