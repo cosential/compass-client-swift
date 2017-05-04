@@ -394,7 +394,7 @@ public class CosentialCompassAPIClient {
         var searchParameters = parameters
         searchParameters["q"] = "Contacts.ContactId:\(contactId)"
         
-        callAPI(type: .get, name: "getContactCallLogs", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+        callAPI(type: .get, name: "getContactCallLogs", endPoint: endPoint, parameters: searchParameters, headers: AuthHeader, userInfo: userInfo)
     }
     
     ////////////////////////////////
