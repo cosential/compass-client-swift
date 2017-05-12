@@ -184,13 +184,13 @@ public class CosentialCompassAPIClient {
     public class func addCompany(parameters: [String : Any]) {
         let endPoint = SERVER_URL + "companies"
         
-        callAPIWithBodyData(type:"POST", name: "addCompany", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addCompany", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
     public class func updateCompany(companyId: Int, parameters: [String : Any]) {
         let endPoint = SERVER_URL + "companies/\(companyId)"
         
-        callAPIWithBodyData(type:"PUT", name: "updateCompany", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "PUT", name: "updateCompany", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
     public class func getCompanyContacts(companyId: Int, parameters: [String : Any], userInfo: Any?) {
@@ -226,13 +226,13 @@ public class CosentialCompassAPIClient {
     public class func addCompanyAddresses(companyId: Int, parameters: [String : Any]) {
         let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
         
-        callAPIWithBodyData(type:"POST", name: "addCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
     public class func updateCompanyAddresses(companyId: Int, parameters: [String : Any]) {
         let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
         
-        callAPIWithBodyData(type:"PUT", name: "updateCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "PUT", name: "updateCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
     ////////////////////////////////
@@ -262,13 +262,13 @@ public class CosentialCompassAPIClient {
     public class func addContact(parameters: [String : Any]) {
         let endPoint = SERVER_URL + "contacts"
         
-        callAPIWithBodyData(type:"POST", name: "addContact", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addContact", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
     public class func updateContact(contactId: Int, parameters: [String : Any]) {
         let endPoint = SERVER_URL + "contacts/\(contactId)"
         
-        callAPIWithBodyData(type:"PUT", name: "updateContact", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "PUT", name: "updateContact", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
     public class func getContactDetail(_ contactId: Int) {
@@ -397,12 +397,30 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getContactCallLogs", endPoint: endPoint, parameters: searchParameters, headers: AuthHeader, userInfo: userInfo)
     }
     
+    public class func addCallLog(parameters: [String : Any], userInfo: Any?) {
+        let endPoint = SERVER_URL + "calllogs"
+        
+        callAPIWithBodyData(type: "POST", name: "addCallLog", endPoint: endPoint, data: [parameters], userInfo: userInfo)
+    }
+    
+    public class func updateCallLog(callLogId: Int, parameters: [String : Any], userInfo: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)"
+        
+        callAPIWithBodyData(type: "PUT", name: "addCallLog", endPoint: endPoint, data: [parameters], userInfo: userInfo)
+    }
+    
+    public class func addContactInfoToCallLog(callLogId: Int, parameters: [String : Any], userInfo: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/contacts"
+        
+        callAPIWithBodyData(type: "POST", name: "addContactInfoToCallLog", endPoint: endPoint, data: [parameters], userInfo: userInfo)
+    }
+    
     ////////////////////////////////
     
     public class func addLead(parameters: [String : Any]) {
         let endPoint = SERVER_URL + "leads"
         
-        callAPIWithBodyData(type:"POST", name: "addLead", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addLead", endPoint: endPoint, data: [parameters], userInfo: "")
     }
     
     public class func getOpportunities(parameters: [String : Any], userInfo: Any?) {
