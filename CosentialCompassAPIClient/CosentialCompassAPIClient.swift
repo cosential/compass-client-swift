@@ -406,7 +406,7 @@ public class CosentialCompassAPIClient {
     public class func updateCallLog(callLogId: Int, parameters: [String : Any], userInfo: Any?) {
         let endPoint = SERVER_URL + "calllogs/\(callLogId)"
         
-        callAPIWithBodyData(type: "PUT", name: "addCallLog", endPoint: endPoint, data: [parameters], userInfo: userInfo)
+        callAPIWithBodyData(type: "PUT", name: "updateCallLog", endPoint: endPoint, data: [parameters], userInfo: userInfo)
     }
     
     public class func addContactInfoToCallLog(callLogId: Int, parameters: [String : Any], userInfo: Any?) {
