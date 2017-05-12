@@ -36,7 +36,7 @@ public class CosentialCompassAPIClient {
                 print(response)
             }
             
-            if (name == "deleteContactTypes") {
+            if (name == "deleteContactTypes" || name == "deleteCallLog") {
                 self.delegate!.onSuccess(apiName: name, data: "" as AnyObject, userInfo: userInfo)
                 return
             }
@@ -407,6 +407,12 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "calllogs/\(callLogId)"
         
         callAPIWithBodyData(type: "PUT", name: "updateCallLog", endPoint: endPoint, data: [parameters], userInfo: userInfo)
+    }
+    
+    public class func deleteCallLog(_ callLogId: Int) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)"
+        
+        callAPI(type: .delete, name: "deleteCallLog", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
     public class func addContactInfoToCallLog(callLogId: Int, parameters: [String : Any], userInfo: Any?) {
