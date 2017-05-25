@@ -36,7 +36,7 @@ public class CosentialCompassAPIClient {
                 print(response)
             }
             
-            if (name == "deleteContactTypes" || name == "deleteCallLog") {
+            if (type == .delete) {
                 self.delegate!.onSuccess(apiName: name, data: "" as AnyObject, userInfo: userInfo)
                 return
             }
