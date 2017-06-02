@@ -177,42 +177,42 @@ public class CosentialCompassAPIClient {
     
     //  Company
     
-    public class func getCompanies(parameters: [String : Any], info: String) {
+    public class func getCompanies(parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "companies"
         
         callAPI(type: .get, name: "getCompanies", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func searchCompaniesWithKeyword(keyword: String) {
+    public class func searchCompaniesWithKeyword(keyword: String, info: Any?) {
         let endPoint = SERVER_URL + "companies/search"
         var parameters = [String : String]()
         parameters["q"] = keyword
         
-        callAPI(type: .get, name: "searchCompaniesWithKeyword", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "searchCompaniesWithKeyword", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func getCompany(companyId: Int, parameters: [String : Any], info: String) {
+    public class func getCompany(companyId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)"
         
         callAPI(type: .get, name: "getCompany", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func addCompany(parameters: [String : Any]) {
+    public class func addCompany(parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "companies"
         
-        callAPIWithBodyData(type: "POST", name: "addCompany", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addCompany", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func updateCompany(companyId: Int, parameters: [String : Any]) {
+    public class func updateCompany(companyId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)"
         
-        callAPIWithBodyData(type: "PUT", name: "updateCompany", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "PUT", name: "updateCompany", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func getCompanyContacts(companyId: Int, parameters: [String : Any], userInfo: Any?) {
+    public class func getCompanyContacts(companyId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)/contacts"
         
-        callAPI(type: .get, name: "getCompanyContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+        callAPI(type: .get, name: "getCompanyContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
     public class func getCompanyTypes() {
@@ -221,41 +221,41 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getCompanyTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
-    public class func addCompanyTypes(_ companyId: Int, parameters: [[String : Any]]) {
+    public class func addCompanyTypes(_ companyId: Int, parameters: [[String : Any]], info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)/companytypes"
         
-        callAPIWithBodyData(type: "POST", name: "addCompanyTypes", endPoint: endPoint, data: parameters, userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addCompanyTypes", endPoint: endPoint, data: parameters, userInfo: info)
     }
     
-    public class func deleteCompanyTypes(_ companyId: Int) {
+    public class func deleteCompanyTypes(_ companyId: Int, info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)/companytypes"
         
-        callAPI(type: .delete, name: "deleteCompanyTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .delete, name: "deleteCompanyTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func getCompanyAddresses(companyId: Int, parameters: [String : Any], userInfo: Any?) {
+    public class func getCompanyAddresses(companyId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
         
-        callAPI(type: .get, name: "getCompanyAddresses", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+        callAPI(type: .get, name: "getCompanyAddresses", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func addCompanyAddresses(companyId: Int, parameters: [String : Any]) {
+    public class func addCompanyAddresses(companyId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
         
-        callAPIWithBodyData(type: "POST", name: "addCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func updateCompanyAddresses(companyId: Int, parameters: [String : Any]) {
+    public class func updateCompanyAddresses(companyId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
         
-        callAPIWithBodyData(type: "PUT", name: "updateCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "PUT", name: "updateCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
     ////////////////////////////////
     
     //  Contact
     
-    public class func getContacts(parameters: [String : Any], info: String) {
+    public class func getContacts(parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "contacts"
         
         callAPI(type: .get, name: "getContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
@@ -267,84 +267,84 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "searchContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
     }
     
-    public class func searchContactsWithKeyword(keyword: String) {
+    public class func searchContactsWithKeyword(keyword: String, info: Any?) {
         let endPoint = SERVER_URL + "contacts/search"
         var parameters = [String : String]()
         parameters["q"] = keyword
         
-        callAPI(type: .get, name: "searchContactsWithKeyword", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "searchContactsWithKeyword", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func addContact(parameters: [String : Any]) {
+    public class func addContact(parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "contacts"
         
-        callAPIWithBodyData(type: "POST", name: "addContact", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addContact", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func updateContact(contactId: Int, parameters: [String : Any]) {
+    public class func updateContact(contactId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)"
         
-        callAPIWithBodyData(type: "PUT", name: "updateContact", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "PUT", name: "updateContact", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func getContactDetail(_ contactId: Int) {
+    public class func getContactDetail(_ contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)"
         
-        callAPI(type: .get, name: "getContactDetail", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "getContactDetail", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func getContactCardFrontImage(contactId: Int) {
+    public class func getContactCardFrontImage(contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardfront"
         
-        callAPI(type: .get, name: "getContactCardFrontImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "getContactCardFrontImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func addContactCardFrontImage(contactId: Int, parameters: [String : Any]) {
+    public class func addContactCardFrontImage(contactId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardfront"
         
-        callAPIWithBodyData(type: "PUT", name: "addContactCardFrontImage", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "PUT", name: "addContactCardFrontImage", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func deleteContactCardFrontImage(contactId: Int) {
+    public class func deleteContactCardFrontImage(contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardfront"
         
-        callAPI(type: .delete, name: "deleteContactCardFrontImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .delete, name: "deleteContactCardFrontImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func getContactCardBackImage(contactId: Int) {
+    public class func getContactCardBackImage(contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardback"
         
-        callAPI(type: .get, name: "getContactCardBackImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "getContactCardBackImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func addContactCardBackImage(contactId: Int, parameters: [String : Any]) {
+    public class func addContactCardBackImage(contactId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardback"
         
-        callAPIWithBodyData(type: "PUT", name: "addContactCardBackImage", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "PUT", name: "addContactCardBackImage", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func deleteContactCardBackImage(contactId: Int) {
+    public class func deleteContactCardBackImage(contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardback"
         
-        callAPI(type: .delete, name: "deleteContactCardBackImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .delete, name: "deleteContactCardBackImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func getContactProfilePicture(contactId: Int) {
+    public class func getContactProfilePicture(contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/profilepicture"
         
-        callAPI(type: .get, name: "getContactProfilePicture", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "getContactProfilePicture", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func addContactProfilePicture(contactId: Int, parameters: [String : Any]) {
+    public class func addContactProfilePicture(contactId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/profilepicture"
         
-        callAPIWithBodyData(type: "PUT", name: "addContactProfilePicture", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "PUT", name: "addContactProfilePicture", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func deleteContactProfilePicture(contactId: Int) {
+    public class func deleteContactProfilePicture(contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/profilepicture"
         
-        callAPI(type: .delete, name: "deleteContactProfilePicture", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .delete, name: "deleteContactProfilePicture", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
     public class func getContactTypes() {
@@ -353,88 +353,88 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getContactTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
-    public class func addContactTypes(_ contactId: Int, parameters: [[String : Any]]) {
+    public class func addContactTypes(_ contactId: Int, parameters: [[String : Any]], info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/types"
         
-        callAPIWithBodyData(type: "POST", name: "addContactTypes", endPoint: endPoint, data: parameters, userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addContactTypes", endPoint: endPoint, data: parameters, userInfo: info)
     }
     
-    public class func deleteContactTypes(_ contactId: Int) {
+    public class func deleteContactTypes(_ contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/types"
         
-        callAPI(type: .delete, name: "deleteContactTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .delete, name: "deleteContactTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func getContactAddresses(contactId: Int) {
+    public class func getContactAddresses(contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/addresses"
         
-        callAPI(type: .get, name: "getContactAddresses", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "getContactAddresses", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func addContactAddresses(contactId: Int, parameters: [[String : Any]], type: String) {
+    public class func addContactAddresses(contactId: Int, parameters: [[String : Any]], info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/addresses"
         
-        callAPIWithBodyData(type: "POST", name: "addContactAddresses", endPoint: endPoint, data: parameters, userInfo: type)
+        callAPIWithBodyData(type: "POST", name: "addContactAddresses", endPoint: endPoint, data: parameters, userInfo: info)
     }
     
-    public class func updateContactAddresses(contactId: Int, parameters: [[String : Any]], type: String) {
+    public class func updateContactAddresses(contactId: Int, parameters: [[String : Any]], info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/addresses"
         
-        callAPIWithBodyData(type: "PUT", name: "updateContactAddresses", endPoint: endPoint, data: parameters, userInfo: type)
+        callAPIWithBodyData(type: "PUT", name: "updateContactAddresses", endPoint: endPoint, data: parameters, userInfo: info)
     }
     
-    public class func addContactRelationships(_ contactId: Int, parameters: [[String : Any]]) {
+    public class func addContactRelationships(_ contactId: Int, parameters: [[String : Any]], info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/relationships"
         
-        callAPIWithBodyData(type: "POST", name: "addContactRelationships", endPoint: endPoint, data: parameters, userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addContactRelationships", endPoint: endPoint, data: parameters, userInfo: info)
     }
     
     ////////////////////////////////
     
     //  CallLog
     
-    public class func getCallLogs(parameters: [String : Any], userInfo: Any?) {
+    public class func getCallLogs(parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "calllogs"
         
-        callAPI(type: .get, name: "getCallLogs", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+        callAPI(type: .get, name: "getCallLogs", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func getCallLogContacts(callLogId: Int, parameters: [String : Any], userInfo: Any?) {
+    public class func getCallLogContacts(callLogId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "calllogs/\(callLogId)/contacts"
         
-        callAPI(type: .get, name: "getCallLogContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+        callAPI(type: .get, name: "getCallLogContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func getContactCallLogs(contactId: Int, parameters: [String : Any], userInfo: Any?) {
+    public class func getContactCallLogs(contactId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "calllogs/search"
         var searchParameters = parameters
         searchParameters["q"] = "Contacts.ContactId:\(contactId)"
         
-        callAPI(type: .get, name: "getContactCallLogs", endPoint: endPoint, parameters: searchParameters, headers: AuthHeader, userInfo: userInfo)
+        callAPI(type: .get, name: "getContactCallLogs", endPoint: endPoint, parameters: searchParameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func addCallLog(parameters: [String : Any], userInfo: Any?) {
+    public class func addCallLog(parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "calllogs"
         
-        callAPIWithBodyData(type: "POST", name: "addCallLog", endPoint: endPoint, data: [parameters], userInfo: userInfo)
+        callAPIWithBodyData(type: "POST", name: "addCallLog", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func updateCallLog(callLogId: Int, parameters: [String : Any], userInfo: Any?) {
+    public class func updateCallLog(callLogId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "calllogs/\(callLogId)"
         
-        callAPIWithBodyData(type: "PUT", name: "updateCallLog", endPoint: endPoint, data: [parameters], userInfo: userInfo)
+        callAPIWithBodyData(type: "PUT", name: "updateCallLog", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
-    public class func deleteCallLog(_ callLogId: Int) {
+    public class func deleteCallLog(_ callLogId: Int, info: Any?) {
         let endPoint = SERVER_URL + "calllogs/\(callLogId)"
         
-        callAPI(type: .delete, name: "deleteCallLog", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
+        callAPI(type: .delete, name: "deleteCallLog", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
-    public class func addContactInfoToCallLog(callLogId: Int, parameters: [String : Any], userInfo: Any?) {
+    public class func addContactInfoToCallLog(callLogId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "calllogs/\(callLogId)/contacts"
         
-        callAPIWithBodyData(type: "POST", name: "addContactInfoToCallLog", endPoint: endPoint, data: [parameters], userInfo: userInfo)
+        callAPIWithBodyData(type: "POST", name: "addContactInfoToCallLog", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
     ////////////////////////////////
@@ -442,25 +442,25 @@ public class CosentialCompassAPIClient {
     public class func addLead(parameters: [String : Any]) {
         let endPoint = SERVER_URL + "leads"
         
-        callAPIWithBodyData(type: "POST", name: "addLead", endPoint: endPoint, data: [parameters], userInfo: "")
+        callAPIWithBodyData(type: "POST", name: "addLead", endPoint: endPoint, data: [parameters], userInfo: nil)
     }
     
-    public class func getOpportunities(parameters: [String : Any], userInfo: Any?) {
+    public class func getOpportunities(parameters: [String : Any]) {
         let endPoint = SERVER_URL + "opportunities"
         
-        callAPI(type: .get, name: "getOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+        callAPI(type: .get, name: "getOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: nil)
     }
     
-    public class func getProjects(parameters: [String : Any], userInfo: Any?) {
+    public class func getProjects(parameters: [String : Any]) {
         let endPoint = SERVER_URL + "projects"
         
-        callAPI(type: .get, name: "getProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+        callAPI(type: .get, name: "getProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: nil)
     }
     
-    public class func getOffices(parameters: [String : Any], userInfo: Any?) {
+    public class func getOffices(parameters: [String : Any]) {
         let endPoint = SERVER_URL + "contacts/offices"
         
-        callAPI(type: .get, name: "getOffices", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: userInfo)
+        callAPI(type: .get, name: "getOffices", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: nil)
     }
     
     ////////////////////////////////
