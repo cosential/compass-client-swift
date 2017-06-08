@@ -389,6 +389,18 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "POST", name: "addContactRelationships", endPoint: endPoint, data: parameters, userInfo: info)
     }
     
+    public class func getContactOpportunities(contactId: Int, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/opportunities"
+        
+        callAPI(type: .get, name: "getContactOpportunities", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func getContactProjects(contactId: Int, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/projects"
+        
+        callAPI(type: .get, name: "getContactProjects", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     //  CallLog
@@ -469,6 +481,20 @@ public class CosentialCompassAPIClient {
         let endPoint = "\(SERVER_URL)/projects/\(firmOrgName)"
         
         callAPI(type: .get, name: "getProjectFirmOrg", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: firmOrgName)
+    }
+    
+    ////////////////////////////////
+    
+    public class func getPersonnelOpportunities(personnelId: Int, info: Any?) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)/opportunities"
+        
+        callAPI(type: .get, name: "getPersonnelOpportunities", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func getPersonnelProjects(personnelId: Int, info: Any?) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)/projects"
+        
+        callAPI(type: .get, name: "getPersonnelProjects", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
     ////////////////////////////////
