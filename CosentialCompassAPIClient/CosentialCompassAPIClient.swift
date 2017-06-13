@@ -261,10 +261,10 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func searchContacts(parameters: [String : Any]) {
+    public class func searchContacts(parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "contacts/search"
         
-        callAPI(type: .get, name: "searchContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: "")
+        callAPI(type: .get, name: "searchContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
     public class func searchContactsWithKeyword(keyword: String, info: Any?) {
