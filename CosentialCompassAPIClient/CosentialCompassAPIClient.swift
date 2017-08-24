@@ -11,7 +11,7 @@ import Alamofire
 public protocol CosentialCompassAPIClientDelegate {
     func onSuccess(apiName: String, data: AnyObject, userInfo: Any?)
     func onError(apiName: String, errorInfo: AnyObject, userInfo: Any?)
-    func onNoInternet()
+    func onNoInternet(apiName: String, errorInfo: AnyObject, userInfo: Any?)
 }
 
 public class CosentialCompassAPIClient {
@@ -49,7 +49,7 @@ public class CosentialCompassAPIClient {
                 
             case.failure(let error):
                 if error is URLError {
-                    self.delegate!.onNoInternet()
+                    self.delegate!.onNoInternet(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
                 }
                 else {
                     let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(parameters)\n\n"
@@ -92,7 +92,7 @@ public class CosentialCompassAPIClient {
                     
                 case .failure(let error):
                     if error is URLError {
-                        self.delegate!.onNoInternet()
+                        self.delegate!.onNoInternet(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
                     }
                     else {
                         let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
@@ -116,7 +116,7 @@ public class CosentialCompassAPIClient {
                     
                 case .failure(let error):
                     if error is URLError {
-                        self.delegate!.onNoInternet()
+                        self.delegate!.onNoInternet(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
                     }
                     else {
                         let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
