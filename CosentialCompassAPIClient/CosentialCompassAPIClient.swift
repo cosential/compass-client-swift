@@ -189,6 +189,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "searchCompanies", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
+    public class func getChangedCompanies(parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "companies/changes"
+        
+        callAPI(type: .get, name: "getChangedCompanies", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
     public class func getCompany(companyId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)"
         
@@ -269,6 +275,12 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "contacts/search"
         
         callAPI(type: .get, name: "searchContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func getChangedContacts(parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "contacts/changes"
+        
+        callAPI(type: .get, name: "getChangedContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
     public class func addContact(parameters: [String : Any], info: Any?) {
