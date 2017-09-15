@@ -20,7 +20,7 @@ public class CosentialCompassAPIClient {
     
     static var SERVER_URL = ""
     static var API_KEY = ""
-    static var AuthHeader = [String : String]()
+    static var AuthHeader = ["Accept" : "application/json", "Content-Type" : "application/json"]
     static var user = ""
     static var firmCode = ""
     static var logText = ""
@@ -65,8 +65,6 @@ public class CosentialCompassAPIClient {
         var request = URLRequest(url: URL.init(string: endPoint)!)
         request.httpMethod = type
         request.allHTTPHeaderFields = AuthHeader
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField:  "Accept")
         
         if (type == "POST") {
             request.httpBody = try! JSONSerialization.data(withJSONObject: data)
@@ -154,7 +152,6 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "user"
         AuthHeader["x-compass-firm-id"] = parameters["firmCode"]
         AuthHeader["x-compass-api-key"] = API_KEY
-        AuthHeader["Accept"] = "application/json"
         
         let user = parameters["user"]
         let password = parameters["password"]
