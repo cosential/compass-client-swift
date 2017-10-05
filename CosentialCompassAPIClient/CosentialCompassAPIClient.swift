@@ -61,6 +61,39 @@ public class CosentialCompassAPIClient {
         }
     }
     
+    class func callAPIWithBlock(type: HTTPMethod, endPoint: String, parameters: [String : Any], headers: HTTPHeaders, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        
+        let newHeader = headers
+        
+        Alamofire.request(endPoint, method: type, parameters: parameters, encoding: URLEncoding.default, headers: newHeader).validate().responseJSON { (response) in
+            if (debugMode) {
+                print(response)
+            }
+            
+            if (type == .delete) {
+                success("" as AnyObject)
+                return
+            }
+            
+            switch response.result {
+            case.success(let value):
+                success(value as AnyObject)
+                break
+                
+            case.failure(let error):
+                if error is URLError {
+                    failure(error as AnyObject)
+                }
+                else {
+                    let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(parameters)\n\n"
+                    logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
+                    failure(error as AnyObject)
+                }
+                break
+            }
+        }
+    }
+    
     class func callAPIWithBodyData(type: String, name: String, endPoint: String, data: [[String : Any]], userInfo: Any?) {
         var request = URLRequest(url: URL.init(string: endPoint)!)
         request.httpMethod = type
@@ -512,6 +545,12 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/images"
         
         callAPI(type: .get, name: "getPersonnelProfilePictures", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func getPersonnelProfilePictures(personnelId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)/images"
+        
+        callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
     public class func getPersonnelProfilePicture(personnelId: Int, imageId: Int, info: Any?) {
