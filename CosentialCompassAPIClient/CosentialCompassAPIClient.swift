@@ -565,6 +565,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getPersonnelProfileThumbPicture", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
+    public class func getPersonnelProfileThumbPicture(personnelId: Int, imageId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "images/personnel/\(personnelId)/\(imageId)/thumb"
+        
+        callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
     public class func getPersonnelOpportunities(personnelId: Int, info: Any?) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/opportunities"
         
