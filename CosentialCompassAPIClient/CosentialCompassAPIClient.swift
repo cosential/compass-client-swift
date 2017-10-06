@@ -507,6 +507,12 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "POST", name: "addContactInfoToLead", endPoint: endPoint, data: [parameters], userInfo: nil)
     }
     
+    public class func addCompanyInfoToLead(leadId: Int, parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "leads/\(leadId)/potentialclient"
+        
+        callAPIWithBodyData(type: "POST", name: "addCompanyInfoToLead", endPoint: endPoint, data: [parameters], userInfo: nil)
+    }
+    
     ////////////////////////////////
     
     public class func getOpportunities(parameters: [String : Any]) {
