@@ -504,13 +504,13 @@ public class CosentialCompassAPIClient {
     public class func addContactInfoToLead(leadId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "leads/\(leadId)/associatedcontacts"
         
-        callAPIWithBodyData(type: "POST", name: "addContactInfoToLead", endPoint: endPoint, data: [parameters], userInfo: nil)
+        callAPIWithBodyData(type: "POST", name: "addContactInfoToLead", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
     public class func addCompanyInfoToLead(leadId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "leads/\(leadId)/potentialclient"
         
-        callAPIWithBodyData(type: "POST", name: "addCompanyInfoToLead", endPoint: endPoint, data: [parameters], userInfo: nil)
+        callAPIWithBodyData(type: "POST", name: "addCompanyInfoToLead", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
     ////////////////////////////////
