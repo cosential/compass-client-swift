@@ -48,13 +48,14 @@ public class CosentialCompassAPIClient {
                 break
                 
             case.failure(let error):
+                let errorInfoString = "Name: \(user), FirmID: \(firmCode)\nError: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(parameters)\n\n"
+                logText = logText + errorInfoString
+                
                 if error is URLError {
-                    self.delegate!.onNoInternet(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
+                    self.delegate!.onNoInternet(apiName: name, errorInfo: errorInfoString as AnyObject, userInfo: userInfo)
                 }
                 else {
-                    let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(parameters)\n\n"
-                    logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
-                    self.delegate!.onError(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
+                    self.delegate!.onError(apiName: name, errorInfo: errorInfoString as AnyObject, userInfo: userInfo)
                 }
                 break
             }
@@ -81,12 +82,13 @@ public class CosentialCompassAPIClient {
                 break
                 
             case.failure(let error):
+                let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(parameters)\n\n"
+                logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
+                
                 if error is URLError {
                     failure(error as AnyObject)
                 }
                 else {
-                    let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(parameters)\n\n"
-                    logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
                     failure(error as AnyObject)
                 }
                 break
@@ -122,13 +124,14 @@ public class CosentialCompassAPIClient {
                     break
                     
                 case .failure(let error):
+                    let errorInfoString = "Name: \(user), FirmID: \(firmCode)\nError: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
+                    logText = logText + errorInfoString
+                    
                     if error is URLError {
-                        self.delegate!.onNoInternet(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
+                        self.delegate!.onNoInternet(apiName: name, errorInfo: errorInfoString as AnyObject, userInfo: userInfo)
                     }
                     else {
-                        let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
-                        logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
-                        self.delegate!.onError(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
+                        self.delegate!.onError(apiName: name, errorInfo: errorInfoString as AnyObject, userInfo: userInfo)
                     }
                     break
                 }
@@ -146,13 +149,14 @@ public class CosentialCompassAPIClient {
                     break
                     
                 case .failure(let error):
+                    let errorInfoString = "Name: \(user), FirmID: \(firmCode)\nError: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
+                    logText = logText + errorInfoString
+                    
                     if error is URLError {
-                        self.delegate!.onNoInternet(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
+                        self.delegate!.onNoInternet(apiName: name, errorInfo: errorInfoString as AnyObject, userInfo: userInfo)
                     }
                     else {
-                        let errorInfoString = "Error: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
-                        logText = logText + "Name: \(user), FirmID: \(firmCode)\n" + errorInfoString
-                        self.delegate!.onError(apiName: name, errorInfo: error as AnyObject, userInfo: userInfo)
+                        self.delegate!.onError(apiName: name, errorInfo: errorInfoString as AnyObject, userInfo: userInfo)
                     }
                     break
                 }
@@ -177,6 +181,10 @@ public class CosentialCompassAPIClient {
     
     public class func getLog() -> String {
         return logText
+    }
+    
+    public class func deleteLog() {
+        logText = ""
     }
     
     ////////////////////////////////
