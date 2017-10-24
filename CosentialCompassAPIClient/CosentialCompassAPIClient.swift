@@ -339,6 +339,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getContactDetail", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
     }
     
+    public class func deleteContact(_ contactId: Int, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)"
+        
+        callAPI(type: .delete, name: "deleteContact", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+    }
+    
     public class func getContactCardFrontImage(contactId: Int, info: Any?) {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/cardfront"
         
