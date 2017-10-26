@@ -463,6 +463,12 @@ public class CosentialCompassAPIClient {
     
     //  CallLog
     
+    public class func getCallLogCallTypes() {
+        let endPoint = SERVER_URL + "calllogs/calltype"
+        
+        callAPI(type: .get, name: "getCallLogCallTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: nil)
+    }
+    
     public class func getCallLogs(parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "calllogs"
         
