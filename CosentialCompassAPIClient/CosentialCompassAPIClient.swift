@@ -481,6 +481,30 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getCallLogContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
+    public class func getCallLogCompanies(callLogId: Int, parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/companies"
+        
+        callAPI(type: .get, name: "getCallLogCompanies", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func getCallLogLeads(callLogId: Int, parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/leads"
+        
+        callAPI(type: .get, name: "getCallLogLeads", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func getCallLogOpportunities(callLogId: Int, parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/opportunities"
+        
+        callAPI(type: .get, name: "getCallLogOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func getCallLogProjects(callLogId: Int, parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/projects"
+        
+        callAPI(type: .get, name: "getCallLogProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
     public class func getContactCallLogs(contactId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "calllogs/search"
         var searchParameters = parameters
