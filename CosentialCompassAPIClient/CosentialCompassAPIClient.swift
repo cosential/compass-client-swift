@@ -109,7 +109,9 @@ public class CosentialCompassAPIClient {
                 request.httpBody = try! JSONSerialization.data(withJSONObject: data)
             }
             else {
-                request.httpBody = try! JSONSerialization.data(withJSONObject: data[0])
+                if (data.count > 0) {
+                    request.httpBody = try! JSONSerialization.data(withJSONObject: data[0])
+                }
             }
         }
         
@@ -391,6 +393,13 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "images/contact/\(contactId)/profilepicture"
         
         callAPIWithBodyData(type: "PUT", name: "addContactProfilePicture", endPoint: endPoint, data: [parameters], userInfo: info)
+    }
+    
+    public class func addContactProfilePictureWithUrl(contactId: Int, url: String, info: Any?) {
+        var endPoint = SERVER_URL + "images/contact/\(contactId)/profilepicture"
+        endPoint = "\(endPoint)?url=\(url)"
+        
+        callAPIWithBodyData(type: "PUT", name: "addContactCardBackImage", endPoint: endPoint, data: [], userInfo: info)
     }
     
     public class func deleteContactProfilePicture(contactId: Int, info: Any?) {
