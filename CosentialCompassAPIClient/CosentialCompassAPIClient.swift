@@ -399,7 +399,7 @@ public class CosentialCompassAPIClient {
         var endPoint = SERVER_URL + "images/contact/\(contactId)/profilepicture"
         endPoint = "\(endPoint)?url=\(url)"
         
-        callAPIWithBodyData(type: "PUT", name: "addContactCardBackImage", endPoint: endPoint, data: [], userInfo: info)
+        callAPIWithBodyData(type: "PUT", name: "addContactProfilePicture", endPoint: endPoint, data: [], userInfo: info)
     }
     
     public class func deleteContactProfilePicture(contactId: Int, info: Any?) {
