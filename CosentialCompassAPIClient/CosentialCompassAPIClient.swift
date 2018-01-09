@@ -514,6 +514,11 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getCallLogProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
+    public class func searchCallLogs(parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/search"
+        callAPI(type: .get, name: "searchCallLogs", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
     public class func getContactCallLogs(contactId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "calllogs/search"
         var searchParameters = parameters
@@ -544,6 +549,12 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "calllogs/\(callLogId)/contacts"
         
         callAPIWithBodyData(type: "POST", name: "addContactInfoToCallLog", endPoint: endPoint, data: [parameters], userInfo: info)
+    }
+    
+    public class func addCompanyInfoToCallLog(callLogId: Int, parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/companies"
+        
+        callAPIWithBodyData(type: "POST", name: "addCompanyInfoToCallLog", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
     ////////////////////////////////
