@@ -30,9 +30,7 @@ public class CosentialCompassAPIClient {
     
     class func callAPI(type: HTTPMethod, name: String, endPoint: String, parameters: [String : Any], headers: HTTPHeaders, userInfo: Any?) {
         
-        let newHeader = headers
-        
-        Alamofire.request(endPoint, method: type, parameters: parameters, encoding: URLEncoding.default, headers: newHeader).validate().responseJSON { (response) in
+        Alamofire.request(endPoint, method: type, parameters: parameters, encoding: URLEncoding.default, headers: headers).validate().responseJSON { (response) in
             if (debugMode) {
                 print(response)
             }
@@ -64,9 +62,7 @@ public class CosentialCompassAPIClient {
     
     class func callAPIWithBlock(type: HTTPMethod, endPoint: String, parameters: [String : Any], headers: HTTPHeaders, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         
-        let newHeader = headers
-        
-        Alamofire.request(endPoint, method: type, parameters: parameters, encoding: URLEncoding.default, headers: newHeader).validate().responseJSON { (response) in
+        Alamofire.request(endPoint, method: type, parameters: parameters, encoding: URLEncoding.default, headers: headers).validate().responseJSON { (response) in
             if (debugMode) {
                 print(response)
             }
@@ -177,6 +173,18 @@ public class CosentialCompassAPIClient {
         self.API_KEY = key
     }
     
+    public class func setUserInfo(parameters: [String : String]) {
+        AuthHeader["x-compass-firm-id"] = parameters["firmCode"]
+        AuthHeader["x-compass-api-key"] = API_KEY
+        
+        let user = parameters["user"]
+        let password = parameters["password"]
+        let loginString = user! + ":" + password!
+        let credentialData = loginString.data(using: String.Encoding.utf8)!
+        let base64Credentials = credentialData.base64EncodedString()
+        AuthHeader["Authorization"] = "Basic \(base64Credentials)"
+    }
+    
     public class func setDebugMode(_ isEnable: Bool) {
         self.debugMode = isEnable
     }
@@ -193,15 +201,8 @@ public class CosentialCompassAPIClient {
     
     public class func signIn(parameters: [String : String]) {
         let endPoint = SERVER_URL + "user"
-        AuthHeader["x-compass-firm-id"] = parameters["firmCode"]
-        AuthHeader["x-compass-api-key"] = API_KEY
         
-        let user = parameters["user"]
-        let password = parameters["password"]
-        let loginString = user! + ":" + password!
-        let credentialData = loginString.data(using: String.Encoding.utf8)!
-        let base64Credentials = credentialData.base64EncodedString()
-        AuthHeader["Authorization"] = "Basic \(base64Credentials)"
+        setUserInfo(parameters: parameters)
         
         callAPI(type: .get, name: "signIn", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
