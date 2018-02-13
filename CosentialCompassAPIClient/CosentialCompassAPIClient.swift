@@ -620,6 +620,26 @@ public class CosentialCompassAPIClient {
     
     ////////////////////////////////
     
+    //  Personnel
+    
+    public class func getPersonnel(parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "personnel"
+        
+        callAPI(type: .get, name: "getPersonnel", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func searchPersonnel(parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "personnel/search"
+        
+        callAPI(type: .get, name: "searchPersonnel", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func getChangedPersonnel(parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "personnel/changes"
+        
+        callAPI(type: .get, name: "getChangedPersonnel", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
+    }
+    
     public class func getPersonnelProfilePictures(personnelId: Int, info: Any?) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/images"
         
