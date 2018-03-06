@@ -111,7 +111,7 @@ public class CosentialCompassAPIClient {
             }
         }
         
-        if (name == "addContactCardFrontImage" || name == "addContactCardBackImage" || name == "addContactProfilePicture") {
+        if (name == "addContactCardFrontImage" || name == "addContactCardBackImage" || name == "addContactProfilePicture" || name == "addCompanyLogo") {
             Alamofire.request(request).responseString { response in
                 if (debugMode) {
                     print(response)
@@ -300,6 +300,18 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
         
         callAPIWithBodyData(type: "PUT", name: "updateCompanyAddresses", endPoint: endPoint, data: [parameters], userInfo: info)
+    }
+    
+    public class func getCompanyLogoThumbnail(companyId: Int, info: Any?) {
+        let endPoint = SERVER_URL + "/images/companies/\(companyId)/thumb"
+        
+        callAPI(type: .get, name: "getCompanyLogoThumbnail", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func addCompanyLogo(companyId: Int, parameters: [String : Any], info: Any?) {
+        let endPoint = SERVER_URL + "images/companies/\(companyId)"
+        
+        callAPIWithBodyData(type: "PUT", name: "addCompanyLogo", endPoint: endPoint, data: [parameters], userInfo: info)
     }
     
     ////////////////////////////////
