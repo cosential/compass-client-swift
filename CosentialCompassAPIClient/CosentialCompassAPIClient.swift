@@ -658,6 +658,8 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getChangedPersonnel", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
+    //  Image
+    
     public class func getPersonnelProfilePictures(personnelId: Int, info: Any?) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/images"
         
@@ -688,17 +690,7 @@ public class CosentialCompassAPIClient {
         callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
-    public class func getPersonnelOpportunities(personnelId: Int, info: Any?) {
-        let endPoint = SERVER_URL + "personnel/\(personnelId)/opportunities"
-        
-        callAPI(type: .get, name: "getPersonnelOpportunities", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
-    }
-    
-    public class func getPersonnelProjects(personnelId: Int, info: Any?) {
-        let endPoint = SERVER_URL + "personnel/\(personnelId)/projects"
-        
-        callAPI(type: .get, name: "getPersonnelProjects", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
-    }
+    //  Firm Organization
     
     public class func getPersonnelOffices(personnelId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/offices"
@@ -730,8 +722,34 @@ public class CosentialCompassAPIClient {
         callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
+    //
+    
+    public class func getPersonnelOpportunities(personnelId: Int, info: Any?) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)/opportunities"
+        
+        callAPI(type: .get, name: "getPersonnelOpportunities", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+    }
+    
+    public class func getPersonnelProjects(personnelId: Int, info: Any?) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)/projects"
+        
+        callAPI(type: .get, name: "getPersonnelProjects", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+    }
+    
     public class func getPersonnelStaffRoles(personnelId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/staffroles"
+        
+        callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    public class func getPersonnelEducation(personnelId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)/education"
+        
+        callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    public class func getPersonnelRegistrations(personnelId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)/registrations"
         
         callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
