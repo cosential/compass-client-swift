@@ -733,7 +733,7 @@ public class CosentialCompassAPIClient {
     public class func getPersonnelProjects(personnelId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/projects"
         
-        callAPI(type: .get, name: "getPersonnelProjects", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+        callAPI(type: .get, name: "getPersonnelProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
     public class func getPersonnelStaffRoles(personnelId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
