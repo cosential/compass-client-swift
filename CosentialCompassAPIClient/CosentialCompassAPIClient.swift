@@ -724,13 +724,13 @@ public class CosentialCompassAPIClient {
     
     //
     
-    public class func getPersonnelOpportunities(personnelId: Int, info: Any?) {
+    public class func getPersonnelOpportunities(personnelId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/opportunities"
         
-        callAPI(type: .get, name: "getPersonnelOpportunities", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
+        callAPI(type: .get, name: "getPersonnelOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, userInfo: info)
     }
     
-    public class func getPersonnelProjects(personnelId: Int, info: Any?) {
+    public class func getPersonnelProjects(personnelId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/projects"
         
         callAPI(type: .get, name: "getPersonnelProjects", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: info)
