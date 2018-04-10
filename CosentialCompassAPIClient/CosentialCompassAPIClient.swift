@@ -734,7 +734,7 @@ public class CosentialCompassAPIClient {
         callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
-    //
+    //  Extra Info
     
     public class func getPersonnelOpportunities(personnelId: Int, parameters: [String : Any], info: Any?) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/opportunities"
@@ -764,6 +764,16 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/registrations"
         
         callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    ////////////////////////////////
+    
+    //  Firm Organization
+    
+    public class func getFirmOrgs() {
+        let endPoint = SERVER_URL + "firmorgs"
+        
+        callAPI(type: .get, name: "getFirmOrgs", endPoint: endPoint, parameters: [:], headers: AuthHeader, userInfo: "")
     }
     
     ////////////////////////////////
