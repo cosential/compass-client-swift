@@ -814,10 +814,22 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getOpportunityProspectTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func getOpportunityProspectTypes(opportunitylId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "opportunities/\(opportunitylId)/prospecttype"
+        
+        callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
     public class func getOpportunityStaffTeams(opportunitylId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "opportunities/\(opportunitylId)/staffteam"
         
         callAPI(type: .get, name: "getOpportunityStaffTeams", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getOpportunityStaffTeams(opportunitylId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "opportunities/\(opportunitylId)/staffteam"
+        
+        callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
     ////////////////////////////////
