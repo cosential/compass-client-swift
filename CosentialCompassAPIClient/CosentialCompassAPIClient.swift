@@ -214,6 +214,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getSchema", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: element)
     }
     
+    public class func getSchema(_ element: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = "\(SERVER_URL)/\(element)/schema"
+        
+        callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
     ////////////////////////////////
     
     //  Company
