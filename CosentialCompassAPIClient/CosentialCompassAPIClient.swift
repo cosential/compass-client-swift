@@ -35,14 +35,24 @@ public class CosentialCompassAPIClient {
                 print(response)
             }
             
+            var info = userInfo as? [String : AnyObject]
+            if (name == "getContacts" || name == "getCompanies" || name == "getPersonnel") {
+                if info == nil {
+                    info = [String : AnyObject]()
+                }
+                if let responseHeader = response.response?.allHeaderFields {
+                    info!["totalCount"] = responseHeader["x-compass-count"] as AnyObject
+                }
+            }
+            
             if (type == .delete) {
-                self.delegate!.onSuccess(apiName: name, data: "" as AnyObject, owner: owner, userInfo: userInfo)
+                self.delegate!.onSuccess(apiName: name, data: "" as AnyObject, owner: owner, userInfo: info)
                 return
             }
             
             switch response.result {
             case.success(let value):
-                self.delegate!.onSuccess(apiName: name, data: value as AnyObject, owner: owner, userInfo: userInfo)
+                self.delegate!.onSuccess(apiName: name, data: value as AnyObject, owner: owner, userInfo: info)
                 break
                 
             case.failure(let error):
@@ -50,10 +60,10 @@ public class CosentialCompassAPIClient {
                 logText = logText + errorInfoString
                 
                 if error is URLError {
-                    self.delegate!.onNoInternet(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: userInfo)
+                    self.delegate!.onNoInternet(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: info)
                 }
                 else {
-                    self.delegate!.onError(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: userInfo)
+                    self.delegate!.onError(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: info)
                 }
                 break
             }
