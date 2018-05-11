@@ -623,6 +623,18 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "POST", name: "addCompanyInfoToCallLog", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
     }
     
+    public class func getCallLogMeetingPlan(callLogId: Int, owner: String) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/meetingplan"
+        
+        callAPI(type: .get, name: "getCallLogMeetingPlan", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: nil)
+    }
+    
+    public class func updateCallLogMeetingPlan(callLogId: Int, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/meetingplan"
+        
+        callAPIWithBodyData(type: "PUT", name: "updateCallLogMeetingPlan", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     public class func addLead(parameters: [String : Any], owner: String, info: Any?) {
