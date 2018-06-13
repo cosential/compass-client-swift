@@ -675,42 +675,6 @@ public class CosentialCompassAPIClient {
     
     ////////////////////////////////
     
-    public class func getOpportunities(parameters: [String : Any], owner: String) {
-        let endPoint = SERVER_URL + "opportunities"
-        
-        callAPI(type: .get, name: "getOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
-    }
-    
-    public class func searchOpportunities(parameters: [String : Any], owner: String) {
-        let endPoint = SERVER_URL + "opportunities/search"
-        
-        callAPI(type: .get, name: "searchOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
-    }
-    
-    public class func getOpportunity(opportunityId: Int, owner: String) {
-        let endPoint = SERVER_URL + "opportunities/\(opportunityId)"
-        
-        callAPI(type: .get, name: "getOpportunity", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: nil)
-    }
-    
-    public class func getProjects(parameters: [String : Any], owner: String) {
-        let endPoint = SERVER_URL + "projects"
-        
-        callAPI(type: .get, name: "getProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
-    }
-    
-    public class func searchProjects(parameters: [String : Any], owner: String) {
-        let endPoint = SERVER_URL + "projects/search"
-        
-        callAPI(type: .get, name: "searchProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
-    }
-    
-    public class func getProject(projectId: Int, owner: String) {
-        let endPoint = SERVER_URL + "projects/\(projectId)"
-        
-        callAPI(type: .get, name: "getProject", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: nil)
-    }
-    
     public class func getOffices(parameters: [String : Any], owner: String) {
         let endPoint = SERVER_URL + "contacts/offices"
         
@@ -859,6 +823,24 @@ public class CosentialCompassAPIClient {
     
     //  Opportunity
     
+    public class func getOpportunities(parameters: [String : Any], owner: String) {
+        let endPoint = SERVER_URL + "opportunities"
+        
+        callAPI(type: .get, name: "getOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
+    }
+    
+    public class func searchOpportunities(parameters: [String : Any], owner: String) {
+        let endPoint = SERVER_URL + "opportunities/search"
+        
+        callAPI(type: .get, name: "searchOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
+    }
+    
+    public class func getOpportunity(opportunityId: Int, owner: String) {
+        let endPoint = SERVER_URL + "opportunities/\(opportunityId)"
+        
+        callAPI(type: .get, name: "getOpportunity", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: nil)
+    }
+    
     public class func getOpportunityProspectTypes(opportunitylId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "opportunities/\(opportunitylId)/prospecttype"
         
@@ -881,6 +863,28 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "opportunities/\(opportunitylId)/staffteam"
         
         callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    ////////////////////////////////
+    
+    //  Project
+    
+    public class func getProjects(parameters: [String : Any], owner: String) {
+        let endPoint = SERVER_URL + "projects"
+        
+        callAPI(type: .get, name: "getProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
+    }
+    
+    public class func searchProjects(parameters: [String : Any], owner: String) {
+        let endPoint = SERVER_URL + "projects/search"
+        
+        callAPI(type: .get, name: "searchProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
+    }
+    
+    public class func getProject(projectId: Int, owner: String) {
+        let endPoint = SERVER_URL + "projects/\(projectId)"
+        
+        callAPI(type: .get, name: "getProject", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: nil)
     }
     
     ////////////////////////////////
