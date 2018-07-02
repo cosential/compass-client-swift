@@ -819,6 +819,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getPersonnelSocials", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func getPersonnelSchema(owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "personnel/schema"
+        
+        callAPI(type: .get, name: "getPersonnelSchema", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     //  Opportunity
