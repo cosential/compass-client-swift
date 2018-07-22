@@ -711,6 +711,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getPersonnel", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func updatePersonnel(personnelId: Int, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)"
+        
+        callAPIWithBodyData(type: "PUT", name: "updatePersonnel", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
+    }
+    
     public class func searchPersonnel(parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "personnel/search"
         
