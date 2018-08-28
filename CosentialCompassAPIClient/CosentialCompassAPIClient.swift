@@ -110,7 +110,7 @@ public class CosentialCompassAPIClient {
             request.httpBody = try! JSONSerialization.data(withJSONObject: data)
         }
         else if (type == "PUT") {
-            if (name == "updateContactAddresses" || name == "updateCompanyAddresses" || name == "updateContactRelationships") {
+            if (name == "updateContactAddresses" || name == "updateCompanyAddresses") {
                 request.httpBody = try! JSONSerialization.data(withJSONObject: data)
             }
             else {
