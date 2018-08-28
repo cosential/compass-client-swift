@@ -110,7 +110,7 @@ public class CosentialCompassAPIClient {
             request.httpBody = try! JSONSerialization.data(withJSONObject: data)
         }
         else if (type == "PUT") {
-            if (name == "updateContactAddresses" || name == "updateCompanyAddresses") {
+            if (name == "updateContactAddresses" || name == "updateCompanyAddresses" || name == "updateContactRelationships") {
                 request.httpBody = try! JSONSerialization.data(withJSONObject: data)
             }
             else {
@@ -510,6 +510,8 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "PUT", name: "updateContactAddresses", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
     }
     
+    //  Contact Relationship
+    
     public class func getContactRelationships(_ contactId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/relationships"
         
@@ -520,6 +522,12 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "contacts/\(contactId)/relationships"
         
         callAPIWithBodyData(type: "POST", name: "addContactRelationships", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
+    }
+    
+    public class func updateContactRelationships(_ contactId: Int, relationshipId: Int, parameters: [[String : Any]], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/relationships/\(relationshipId)"
+        
+        callAPIWithBodyData(type: "PUT", name: "updateContactRelationships", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
     }
     
     public class func getContactOpportunities(contactId: Int, owner: String, info: Any?) {
