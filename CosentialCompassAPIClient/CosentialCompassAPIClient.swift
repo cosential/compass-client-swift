@@ -530,6 +530,12 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "PUT", name: "updateContactRelationships", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
     }
     
+    public class func deleteContactRelationship(_ contactId: Int, relationshipId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/relationships/\(relationshipId)"
+        
+        callAPI(type: .delete, name: "deleteContactRelationship", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     public class func getContactOpportunities(contactId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/opportunities"
         
