@@ -554,6 +554,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getContactSocials", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func getContactMailingList(contactId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/Contact_MailingList"
+        
+        callAPI(type: .get, name: "getContactMailingList", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     //  CallLog
