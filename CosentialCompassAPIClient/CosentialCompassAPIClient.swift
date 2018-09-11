@@ -544,6 +544,18 @@ public class CosentialCompassAPIClient {
     
     //  Contact Relationship
     
+    public class func getRelationships(owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/relationships/relationship"
+        
+        callAPI(type: .get, name: "getRelationships", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getRelationshipStrengths(owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/relationships/relationshipstrength"
+        
+        callAPI(type: .get, name: "getRelationshipStrengths", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     public class func getContactRelationships(_ contactId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/relationships"
         
