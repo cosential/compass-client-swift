@@ -741,6 +741,30 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "POST", name: "addCallLogProjects", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
     }
     
+    public class func deleteCallLogCompany(callLogId: Int, companyId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/companies/\(companyId)"
+        
+        callAPI(type: .delete, name: "deleteCallLogCompany", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func deleteCallLogLead(callLogId: Int, leadId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/leads/\(leadId)"
+        
+        callAPI(type: .delete, name: "deleteCallLogLead", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func deleteCallLogOpportunity(callLogId: Int, opportunityId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/opportunities/\(opportunityId)"
+        
+        callAPI(type: .delete, name: "deleteCallLogOpportunity", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func deleteCallLogProject(callLogId: Int, projectId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/projects/\(projectId)"
+        
+        callAPI(type: .delete, name: "deleteCallLogProject", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     //  Lead
