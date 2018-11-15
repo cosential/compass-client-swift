@@ -275,6 +275,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getCompanyContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func getCompanySubData(companyId: Int, subPath: String, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/\(subPath)"
+        
+        callAPI(type: .get, name: "getCompanySubData", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     //  Company Types
     
     public class func getCompanyTypes(owner: String) {
