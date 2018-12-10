@@ -413,6 +413,50 @@ public class CosentialCompassAPIClient {
         callAPI(type: .delete, name: "deleteCompanyPrequalification", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    //  LegalStructure
+    
+    public class func getLegalStructures(_ owner: String) {
+        let endPoint = SERVER_URL + "companies/legalstructure"
+        
+        callAPI(type: .get, name: "getLegalStructures", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: nil)
+    }
+    
+    public class func addLegalStructure(_ parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/legalstructure"
+        
+        callAPIWithBodyData(type: "POST", name: "addLegalStructure", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
+    }
+    
+    public class func updateLegalStructure(_ parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/legalstructure"
+        
+        callAPIWithBodyData(type: "PUT", name: "updateLegalStructure", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
+    }
+    
+    public class func deleteLegalStructure(_ legalStructureId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/legalstructure/\(legalStructureId)"
+        
+        callAPI(type: .delete, name: "deleteLegalStructure", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getCompanyLegalStructures(_ companyId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/legalstructure"
+        
+        callAPI(type: .get, name: "getCompanyLegalStructures", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func addCompanyLegalStructure(_ companyId: Int, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/legalstructure"
+        
+        callAPIWithBodyData(type: "POST", name: "addCompanyLegalStructure", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
+    }
+    
+    public class func deleteCompanyLegalStructure(_ companyId: Int, legalStructureId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/legalstructure/\(legalStructureId)"
+        
+        callAPI(type: .delete, name: "deleteCompanyLegalStructure", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     //  Contact
