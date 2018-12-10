@@ -295,6 +295,24 @@ public class CosentialCompassAPIClient {
         callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
+    public class func getCompanyCompanyTypes(_ companyId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/companytypes"
+        
+        callAPI(type: .get, name: "getCompanyCompanyTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: "")
+    }
+    
+    public class func addCompanyTypes(_ companyId: Int, parameters: [[String : Any]], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/companytypes"
+        
+        callAPIWithBodyData(type: "POST", name: "addCompanyTypes", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
+    }
+    
+    public class func deleteCompanyTypes(_ companyId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/companytypes"
+        
+        callAPI(type: .delete, name: "deleteCompanyTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     //  Firm Organization
     
     public class func getCompanyOffices(companyId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
@@ -327,25 +345,7 @@ public class CosentialCompassAPIClient {
         callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
-    //
-    
-    public class func getCompanyCompanyTypes(_ companyId: Int, owner: String, info: Any?) {
-        let endPoint = SERVER_URL + "companies/\(companyId)/companytypes"
-        
-        callAPI(type: .get, name: "getCompanyCompanyTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: "")
-    }
-    
-    public class func addCompanyTypes(_ companyId: Int, parameters: [[String : Any]], owner: String, info: Any?) {
-        let endPoint = SERVER_URL + "companies/\(companyId)/companytypes"
-        
-        callAPIWithBodyData(type: "POST", name: "addCompanyTypes", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
-    }
-    
-    public class func deleteCompanyTypes(_ companyId: Int, owner: String, info: Any?) {
-        let endPoint = SERVER_URL + "companies/\(companyId)/companytypes"
-        
-        callAPI(type: .delete, name: "deleteCompanyTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
-    }
+    //  Address
     
     public class func getCompanyAddresses(companyId: Int, parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)/addresses"
@@ -365,6 +365,8 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "PUT", name: "updateCompanyAddresses", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
     }
     
+    //  Logo
+    
     public class func getCompanyLogoThumbnail(companyId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "/images/companies/\(companyId)/thumb"
         
@@ -377,10 +379,38 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "PUT", name: "addCompanyLogo", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
     }
     
+    //  Social
+    
     public class func getCompanySocials(_ companyId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "companies/\(companyId)/social"
         
         callAPI(type: .get, name: "getCompanySocials", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: "")
+    }
+    
+    //  Prequalification
+    
+    public class func getCompanyPrequalifications(_ companyId: Int, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/prequalifications"
+        
+        callAPI(type: .get, name: "getCompanyPrequalifications", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func addCompanyPrequalifications(_ companyId: Int, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/prequalifications"
+        
+        callAPIWithBodyData(type: "POST", name: "addCompanyPrequalifications", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
+    }
+    
+    public class func updateCompanyPrequalifications(_ companyId: Int, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/prequalifications"
+        
+        callAPIWithBodyData(type: "PUT", name: "updateCompanyPrequalifications", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
+    }
+    
+    public class func deleteCompanyPrequalification(_ companyId: Int, prequalificationId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/prequalifications/\(prequalificationId)"
+        
+        callAPI(type: .delete, name: "deleteCompanyPrequalification", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     ////////////////////////////////
