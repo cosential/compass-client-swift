@@ -413,6 +413,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .delete, name: "deleteCompanyPrequalification", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func deleteAllCompanyPrequalifications(_ companyId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/prequalifications"
+        
+        callAPI(type: .delete, name: "deleteAllCompanyPrequalifications", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     //  LegalStructure
     
     public class func getLegalStructures(_ owner: String) {
@@ -455,6 +461,12 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "companies/\(companyId)/legalstructure/\(legalStructureId)"
         
         callAPI(type: .delete, name: "deleteCompanyLegalStructure", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func deleteAllCompanyLegalStructures(_ companyId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/legalstructure"
+        
+        callAPI(type: .delete, name: "deleteAllCompanyLegalStructures", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     ////////////////////////////////
