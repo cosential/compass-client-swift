@@ -596,8 +596,6 @@ public class CosentialCompassAPIClient {
         callAPIWithBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
-    //
-    
     public class func getContactContactTypes(contactId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/types"
         
@@ -672,6 +670,28 @@ public class CosentialCompassAPIClient {
         callAPI(type: .delete, name: "deleteContactRelationship", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    //  Contact Mailing List
+    
+    public class func getContactMailingList(owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/Contact_MailingList"
+        
+        callAPI(type: .get, name: "getContactMailingList", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getContactContactMailingList(contactId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/Contact_MailingList"
+        
+        callAPI(type: .get, name: "getContactContactMailingList", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func addContactContactMailingList(contactId: Int, parameters: [[String : Any]], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/Contact_MailingList"
+        
+        callAPIWithBodyData(type: "POST", name: "addContactContactMailingList", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
+    }
+    
+    //  Other
+    
     public class func getContactOpportunities(contactId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/opportunities"
         
@@ -688,12 +708,6 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "contacts/\(contactId)/social"
         
         callAPI(type: .get, name: "getContactSocials", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
-    }
-    
-    public class func getContactMailingList(contactId: Int, owner: String, info: Any?) {
-        let endPoint = SERVER_URL + "contacts/\(contactId)/Contact_MailingList"
-        
-        callAPI(type: .get, name: "getContactMailingList", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     ////////////////////////////////
