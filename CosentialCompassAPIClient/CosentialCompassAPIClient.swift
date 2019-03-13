@@ -10,7 +10,7 @@ import Alamofire
 
 public protocol CosentialCompassAPIClientDelegate {
     func onSuccess(apiName: String, data: AnyObject, owner: String, userInfo: Any?)
-    func onError(apiName: String, errorInfo: AnyObject, owner: String, userInfo: Any?)
+    func onError(apiName: String, status: Int, errorInfo: AnyObject, owner: String, userInfo: Any?)
     func onNoInternet(apiName: String, errorInfo: AnyObject, owner: String, userInfo: Any?)
 }
 
@@ -62,7 +62,8 @@ public class CosentialCompassAPIClient {
                     self.delegate!.onNoInternet(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: info)
                 }
                 else {
-                    self.delegate!.onError(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: info)
+                    let status = response.response?.statusCode ?? 0
+                    self.delegate!.onError(apiName: name, status: status, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: info)
                 }
                 break
             }
@@ -138,7 +139,8 @@ public class CosentialCompassAPIClient {
                         self.delegate!.onNoInternet(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: userInfo)
                     }
                     else {
-                        self.delegate!.onError(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: userInfo)
+                        let status = response.response?.statusCode ?? 0
+                        self.delegate!.onError(apiName: name, status: status, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: userInfo)
                     }
                     break
                 }
@@ -163,7 +165,8 @@ public class CosentialCompassAPIClient {
                         self.delegate!.onNoInternet(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: userInfo)
                     }
                     else {
-                        self.delegate!.onError(apiName: name, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: userInfo)
+                        let status = response.response?.statusCode ?? 0
+                        self.delegate!.onError(apiName: name, status: status, errorInfo: errorInfoString as AnyObject, owner: owner, userInfo: userInfo)
                     }
                     break
                 }
