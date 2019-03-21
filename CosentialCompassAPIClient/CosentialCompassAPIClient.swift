@@ -719,10 +719,18 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getContactInfluenceLevels", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
-    public class func getContactCategories(contactId: Int, owner: String, info: Any?) {
-        let endPoint = SERVER_URL + "contacts/\(contactId)/Contact_Category"
+    //  Category
+    
+    public class func getContactCategories(owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/contact_category"
         
         callAPI(type: .get, name: "getContactCategories", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getContactContactCategories(contactId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/contact_category"
+        
+        callAPI(type: .get, name: "getContactContactCategories", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     //  Firm Organization
