@@ -174,6 +174,76 @@ public class CosentialCompassAPIClient {
         }
     }
     
+    class func callAPIWithBodyDataInBlock(type: String, name: String, endPoint: String, data: [[String : Any]], success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        var request = URLRequest(url: URL.init(string: endPoint)!)
+        request.httpMethod = type
+        request.allHTTPHeaderFields = AuthHeader
+        
+        if (type == "POST") {
+            request.httpBody = try! JSONSerialization.data(withJSONObject: data)
+        }
+        else if (type == "PUT") {
+            if (name == "updateContactAddresses" || name == "updateCompanyAddresses") {
+                request.httpBody = try! JSONSerialization.data(withJSONObject: data)
+            }
+            else {
+                if (data.count > 0) {
+                    request.httpBody = try! JSONSerialization.data(withJSONObject: data[0])
+                }
+            }
+        }
+        
+        if (name == "addContactCardFrontImage" || name == "addContactCardBackImage" || name == "addContactProfilePicture" || name == "addCompanyLogo") {
+            Alamofire.request(request).responseString { response in
+                if (debugMode) {
+                    print(response)
+                }
+                switch response.result {
+                case .success(let value):
+                    success(value as AnyObject)
+                    break
+                    
+                case .failure(let error):
+                    let errorInfoString = "Name: \(user), FirmID: \(firmCode)\nError: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
+                    logText = logText + errorInfoString
+                    
+                    if error is URLError {
+                        failure(error as AnyObject)
+                    }
+                    else {
+                        failure(error as AnyObject)
+                    }
+                    break
+                }
+            }
+        }
+        else
+        {
+            Alamofire.request(request).responseJSON { response in
+                if (debugMode) {
+                    print(response)
+                }
+                switch response.result {
+                case .success(let value):
+                    success(value as AnyObject)
+                    break
+                    
+                case .failure(let error):
+                    let errorInfoString = "Name: \(user), FirmID: \(firmCode)\nError: \(error)\nCall Type: \(type)\nAPI Endpoint: \(endPoint)\nParameters: \(data)\n\n"
+                    logText = logText + errorInfoString
+                    
+                    if error is URLError {
+                        failure(error as AnyObject)
+                    }
+                    else {
+                        failure(error as AnyObject)
+                    }
+                    break
+                }
+            }
+        }
+    }
+    
     ////////////////////////////////
     
     public class func setDelegate(_ delegate: CosentialCompassAPIClientDelegate) {
