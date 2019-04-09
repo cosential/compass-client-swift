@@ -813,19 +813,19 @@ public class CosentialCompassAPIClient {
     
     //  Firm Organization
     
-    public class func getContactFirmOrgs(contactId: Int, firmOrg: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+    public class func getContactFirmOrgs(_ firmOrg: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         let endPoint = SERVER_URL + "contacts/\(firmOrg)"
         
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
-    public class func getContactContactFirmOrgs(contactId: Int, firmOrg: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+    public class func getContactContactFirmOrgs(_ contactId: Int, firmOrg: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/\(firmOrg)"
         
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
-    public class func addContactContactFirmOrgs(contactId: Int, firmOrg: String, parameters: [[String : Any]], success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+    public class func addContactContactFirmOrgs(_ contactId: Int, firmOrg: String, parameters: [[String : Any]], success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/\(firmOrg)"
         
         callAPIWithBodyDataInBlock(type: "POST", name: "addContactContactFirmOrgs", endPoint: endPoint, data: parameters, success: success, failure: failure)
