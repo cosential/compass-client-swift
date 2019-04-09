@@ -831,30 +831,6 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyDataInBlock(type: "POST", name: "addContactContactFirmOrgs", endPoint: endPoint, data: parameters, success: success, failure: failure)
     }
     
-    public class func getContactDivisions(contactId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "contacts/\(contactId)/divisions"
-        
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
-    }
-    
-    public class func getContactStudios(contactId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "contacts/\(contactId)/studios"
-        
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
-    }
-    
-    public class func getContactPracticeAreas(contactId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "contacts/\(contactId)/practiceareas"
-        
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
-    }
-    
-    public class func getContactTerritories(contactId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "contacts/\(contactId)/territories"
-        
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
-    }
-    
     ////////////////////////////////
     
     //  CallLog
