@@ -814,9 +814,21 @@ public class CosentialCompassAPIClient {
     //  Firm Organization
     
     public class func getContactOffices(contactId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "contacts/offices"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    public class func getContactContactOffices(contactId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         let endPoint = SERVER_URL + "contacts/\(contactId)/offices"
         
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    public class func addContactContactOffices(contactId: Int, parameters: [[String : Any]], success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/offices"
+        
+        callAPIWithBodyDataInBlock(type: "POST", name: "addContactContactOffices", endPoint: endPoint, data: parameters, success: success, failure: failure)
     }
     
     public class func getContactDivisions(contactId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
