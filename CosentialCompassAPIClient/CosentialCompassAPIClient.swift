@@ -542,6 +542,14 @@ public class CosentialCompassAPIClient {
         callAPI(type: .delete, name: "deleteAllCompanyLegalStructures", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    //  Users
+    
+    public class func getCompanyUsers(_ companyId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "companies/\(companyId)/users"
+        
+        callAPI(type: .get, name: "getCompanyUsers", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     //  Contact
