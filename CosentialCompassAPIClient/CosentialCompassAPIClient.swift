@@ -1266,16 +1266,16 @@ public class CosentialCompassAPIClient {
     
     //  Project
     
-    public class func getProjects(parameters: [String : Any], owner: String) {
+    public class func getProjects(parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "projects"
         
-        callAPI(type: .get, name: "getProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
+        callAPI(type: .get, name: "getProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
-    public class func searchProjects(parameters: [String : Any], owner: String) {
+    public class func searchProjects(parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "projects/search"
         
-        callAPI(type: .get, name: "searchProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
+        callAPI(type: .get, name: "searchProjects", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     public class func getChangedProjects(parameters: [String : Any], owner: String, info: Any?) {
@@ -1290,10 +1290,10 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getProject", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: nil)
     }
     
-    public class func getProjectStatuses(owner: String) {
+    public class func getProjectStatuses(owner: String, info: Any?) {
         let endPoint = SERVER_URL + "projects/status"
         
-        callAPI(type: .get, name: "getProjectStatuses", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: nil)
+        callAPI(type: .get, name: "getProjectStatuses", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     //  Firm Organization
