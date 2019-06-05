@@ -1296,6 +1296,24 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getProjectStatuses", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func getProjectContractTypes(owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "projects/contracttype"
+        
+        callAPI(type: .get, name: "getProjectContractTypes", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getProjectRoles(owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "projects/role"
+        
+        callAPI(type: .get, name: "getProjectRoles", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getProjectSubData(projectId: Int, path: String, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "projects/\(projectId)/\(path)"
+        
+        callAPI(type: .get, name: "getProjectSubData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     //  Firm Organization
     
     public class func getProjectOffices(projectId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
