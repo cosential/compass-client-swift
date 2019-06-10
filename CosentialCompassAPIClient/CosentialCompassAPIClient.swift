@@ -1374,6 +1374,20 @@ public class CosentialCompassAPIClient {
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
+    //  Image
+    
+    public class func getProjectImages(projectId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "projects/\(projectId)/images"
+        
+        callAPI(type: .get, name: "getProjectImages", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getProjectThumbImage(projectId: Int, imageId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "images/project/\(projectId)/\(imageId)/thumb"
+        
+        callAPI(type: .get, name: "getProjectImages", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     //  Firm Organization
