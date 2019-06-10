@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CosentialCompassAPIClient'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = 'CosentialCompassAPIClient'
  
   s.description      = <<-DESC
