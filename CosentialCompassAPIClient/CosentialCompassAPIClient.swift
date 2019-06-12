@@ -1382,10 +1382,10 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getProjectImages", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
-    public class func getProjectThumbImage(_ projectId: Int, imageId: Int, owner: String, info: Any?) {
-        let endPoint = SERVER_URL + "images/project/\(projectId)/\(imageId)/thumb"
+    public class func getProjectImage(_ projectId: Int, imageId: Int, kind: String, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "images/project/\(projectId)/\(imageId)/\(kind)"
         
-        callAPI(type: .get, name: "getProjectThumbImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+        callAPI(type: .get, name: "getProjectImage", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     public class func getProjectImages(_ projectId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
@@ -1394,8 +1394,8 @@ public class CosentialCompassAPIClient {
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
-    public class func getProjectThumbImage(_ projectId: Int, imageId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "images/project/\(projectId)/\(imageId)/thumb"
+    public class func getProjectImage(_ projectId: Int, imageId: Int, kind: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "images/project/\(projectId)/\(imageId)/\(kind)"
         
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
