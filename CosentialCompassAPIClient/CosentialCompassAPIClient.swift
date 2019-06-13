@@ -1314,6 +1314,18 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getProjectSubData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func addProjectSubData(projectId: Int, path: String, parameters: [[String : Any]], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "projects/\(projectId)/\(path)"
+        
+        callAPIWithBodyData(type: "POST", name: "addProjectSubData", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
+    }
+    
+    public class func deleteProjectSubData(projectId: Int, path: String, dataId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "projects/\(projectId)/\(path)/\(dataId)"
+        
+        callAPI(type: .get, name: "deleteProjectSubData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     //  Firm Organization
     
     public class func getProjectOffices(projectId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
