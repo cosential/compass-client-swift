@@ -1323,7 +1323,13 @@ public class CosentialCompassAPIClient {
     public class func deleteProjectSubData(projectId: Int, path: String, dataId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "projects/\(projectId)/\(path)/\(dataId)"
         
-        callAPI(type: .get, name: "deleteProjectSubData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+        callAPI(type: .delete, name: "deleteProjectSubData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func deleteProjectSubData(projectId: Int, path: String, dataId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "projects/\(projectId)/\(path)/\(dataId)"
+        
+        callAPIInBlock(type: .delete, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
     //  Firm Organization
