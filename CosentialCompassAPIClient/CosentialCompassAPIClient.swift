@@ -1062,14 +1062,6 @@ public class CosentialCompassAPIClient {
     
     ////////////////////////////////
     
-    public class func getProjectFirmOrg(_ firmOrgName: String, parameters: [String : Any], owner: String) {
-        let endPoint = "\(SERVER_URL)/projects/\(firmOrgName)"
-        
-        callAPI(type: .get, name: "getProjectFirmOrg", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: firmOrgName)
-    }
-    
-    ////////////////////////////////
-    
     //  Personnel
     
     public class func getPersonnelDetail(personnelId: Int, owner: String, info: Any?) {
@@ -1334,34 +1326,16 @@ public class CosentialCompassAPIClient {
     
     //  Firm Organization
     
-    public class func getProjectOffices(projectId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "projects/\(projectId)/offices"
+    public class func getProjectFirmOrgData(_ firmOrgName: String, parameters: [String : Any], success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "projects/\(firmOrgName)"
         
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: parameters, headers: AuthHeader, success: success, failure: failure)
     }
     
-    public class func getProjectDivisions(projectId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "projects/\(projectId)/divisions"
+    public class func getProjectFirmOrgData(_ firmOrgName: String, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "projects/\(firmOrgName)"
         
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
-    }
-    
-    public class func getProjectStudios(projectId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "projects/\(projectId)/studios"
-        
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
-    }
-    
-    public class func getProjectPracticeAreas(projectId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "projects/\(projectId)/practiceareas"
-        
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
-    }
-    
-    public class func getProjectTerritories(projectId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "projects/\(projectId)/territories"
-        
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+        callAPI(type: .get, name: "getProjectFirmOrgData", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     //  Category
