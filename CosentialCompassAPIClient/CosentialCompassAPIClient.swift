@@ -1034,6 +1034,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getChangedLeads", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func searchLeads(parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "leads/search"
+        
+        callAPI(type: .get, name: "searchLeads", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     public class func addLead(parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "leads"
         
