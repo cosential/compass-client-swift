@@ -1406,6 +1406,18 @@ public class CosentialCompassAPIClient {
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
+    public class func addProjectImages(_ projectId: Int, parameters: [[String : Any]], success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "projects/\(projectId)/images"
+        
+        callAPIWithBodyDataInBlock(type: "POST", name: "addProjectImages", endPoint: endPoint, data: parameters, success: success, failure: failure)
+    }
+    
+    public class func updateProjectImages(_ projectId: Int, imageId: Int, parameters: [[String : Any]], success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "projects/\(projectId)/images/\(imageId)"
+        
+        callAPIWithBodyDataInBlock(type: "PUT", name: "updateProjectImages", endPoint: endPoint, data: parameters, success: success, failure: failure)
+    }
+    
     ////////////////////////////////
     
     //  Firm Organization
