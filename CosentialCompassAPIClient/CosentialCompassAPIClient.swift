@@ -193,7 +193,7 @@ public class CosentialCompassAPIClient {
             }
         }
         
-        if (name == "addContactCardFrontImage" || name == "addContactCardBackImage" || name == "addContactProfilePicture" || name == "addCompanyLogo") {
+        if (name == "addContactCardFrontImage" || name == "addContactCardBackImage" || name == "addContactProfilePicture" || name == "addCompanyLogo" || name == "addProjectImageContent") {
             Alamofire.request(request).responseString { response in
                 if (debugMode) {
                     print(response)
@@ -1428,6 +1428,12 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "projects/\(projectId)/images/\(imageId)"
         
         callAPIInBlock(type: .delete, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    public class func addProjectImageContent(_ projectId: Int, imageId: Int, parameters: [[String : Any]], success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "images/project/\(projectId)/\(imageId)"
+        
+        callAPIWithBodyDataInBlock(type: "PUT", name: "addProjectImageContent", endPoint: endPoint, data: parameters, success: success, failure: failure)
     }
     
     ////////////////////////////////
