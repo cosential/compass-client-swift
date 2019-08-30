@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CosentialCompassAPIClient'
-  s.version          = '1.2.2'
+  s.version          = '1.2.3'
   s.summary          = 'CosentialCompassAPIClient'
  
   s.description      = <<-DESC
@@ -16,6 +16,6 @@ CosentialCompassAPIClient for Pod
   s.dependency 'Alamofire', '~> 4.0'
   s.source_files = 'CosentialCompassAPIClient/*.swift'
 
-  s.swift_version = "4.2"
+  s.swift_version = "5.0"
  
 end
