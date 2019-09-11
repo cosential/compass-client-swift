@@ -1238,6 +1238,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "searchOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func getChangedOpportunities(parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "opportunities/changes"
+        
+        callAPI(type: .get, name: "getChangedOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     public class func getOpportunity(opportunityId: Int, owner: String) {
         let endPoint = SERVER_URL + "opportunities/\(opportunityId)"
         
