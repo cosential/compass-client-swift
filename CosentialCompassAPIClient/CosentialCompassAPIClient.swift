@@ -1274,6 +1274,12 @@ public class CosentialCompassAPIClient {
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
+    public class func getOpportunityEmails(opportunitylId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "opportunities/\(opportunitylId)/emails"
+        
+        callAPI(type: .get, name: "getOpportunityEmails", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     //  Project
