@@ -1495,4 +1495,26 @@ public class CosentialCompassAPIClient {
     }
     
     ////////////////////////////////
+    
+    //  Email
+    
+    public class func getEmail(_ emailId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "emails/\(emailId)"
+        
+        callAPI(type: .get, name: "getEmail", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getEmailSubData(_ emailId: Int, path: String, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "emails/\(emailId)/\(path)"
+        
+        callAPI(type: .get, name: "getEmailSubData", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getEmailSubData(_ emailId: Int, path: String, parameters: [String : Any], success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "emails/\(emailId)/\(path)"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: parameters, headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    ////////////////////////////////
 }
