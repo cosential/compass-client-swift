@@ -946,6 +946,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .delete, name: "deleteCallLog", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func addRecordInfoToCallLog(callLogId: Int, recordType: String, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "calllogs/\(callLogId)/\(recordType)"
+        
+        callAPIWithBodyData(type: "POST", name: "addRecordInfoToCallLog", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
+    }
+    
     public class func addContactInfoToCallLog(callLogId: Int, parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "calllogs/\(callLogId)/contacts"
         
