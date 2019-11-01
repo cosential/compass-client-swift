@@ -36,7 +36,7 @@ public class CosentialCompassAPIClient {
             }
             
             var info = userInfo
-            if (name == "getContacts" || name == "getCompanies" || name == "getPersonnel") {
+            if (name == "getContacts" || name == "getCompanies" || name == "getOpportunities" || name == "getPersonnel" || name == "getProjects") {
                 var infoObject = userInfo as! [String : AnyObject]
                 if let responseHeader = response.response?.allHeaderFields {
                     infoObject["totalCount"] = responseHeader["x-compass-count"] as AnyObject
