@@ -1049,7 +1049,7 @@ public class CosentialCompassAPIClient {
     public class func addLead(parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "leads"
         
-        callAPIWithBodyData(type: "POST", name: "addLead", endPoint: endPoint, data: [parameters], owner: owner, userInfo: nil)
+        callAPIWithBodyData(type: "POST", name: "addLead", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
     }
     
     public class func addContactInfoToLead(leadId: Int, parameters: [String : Any], owner: String, info: Any?) {
@@ -1235,7 +1235,7 @@ public class CosentialCompassAPIClient {
     public class func getOpportunities(parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "opportunities"
         
-        callAPI(type: .get, name: "getOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: nil)
+        callAPI(type: .get, name: "getOpportunities", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     public class func searchOpportunities(parameters: [String : Any], owner: String, info: Any?) {
