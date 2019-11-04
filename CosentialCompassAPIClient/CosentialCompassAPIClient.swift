@@ -1256,6 +1256,12 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getOpportunity", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: nil)
     }
     
+    public class func updateOpportunity(_ id: Int, parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "opportunities/\(id)"
+        
+        callAPIWithBodyData(type: "PUT", name: "updateOpportunity", endPoint: endPoint, data: [parameters], owner: owner, userInfo: info)
+    }
+    
     public class func getOpportunityProspectTypeSchema(owner: String, info: Any?) {
         let endPoint = SERVER_URL + "opportunities/prospecttype/schema"
         
