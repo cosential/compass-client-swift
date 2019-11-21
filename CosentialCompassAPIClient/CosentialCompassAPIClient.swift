@@ -1322,6 +1322,18 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getOpportunityFirmOrgData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func getAllOpportunitySubData(_ path: String, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "opportunities/\(path)"
+        
+        callAPI(type: .get, name: "getAllOpportunitySubData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getOpportunitySubData(_ opportunitylId: Int, path: String, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "opportunities/\(opportunitylId)/\(path)"
+        
+        callAPI(type: .get, name: "getOpportunitySubData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     ////////////////////////////////
     
     //  Project
