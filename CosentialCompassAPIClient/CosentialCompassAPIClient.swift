@@ -1084,6 +1084,42 @@ public class CosentialCompassAPIClient {
     
     //  Personnel
     
+    public class func getPersonnelSchema(owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "personnel/schema"
+        
+        callAPI(type: .get, name: "getPersonnelSchema", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getPersonnelSchema(success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/schema"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    public class func getAllPersonnelSubData(_ path: String, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "personnel/\(path)"
+        
+        callAPI(type: .get, name: "getAllPersonnelSubData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getAllPersonnelSubData(_ path: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/\(path)"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    public class func getPersonnelSubData(_ personnelId: Int, path: String, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)/\(path)"
+        
+        callAPI(type: .get, name: "getPersonnelSubData", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func getPersonnelSubData(_ personnelId: Int, path: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/\(personnelId)/\(path)"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
     public class func getPersonnelDetail(personnelId: Int, owner: String, info: Any?) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)"
         
@@ -1148,8 +1184,20 @@ public class CosentialCompassAPIClient {
     
     //  Firm Organization
     
+    public class func getAllPersonnelOffices(success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/offices"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
     public class func getPersonnelOffices(personnelId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/offices"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    public class func getAllPersonnelDivisions(success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/divisions"
         
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
@@ -1160,14 +1208,32 @@ public class CosentialCompassAPIClient {
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
+    public class func getAllPersonnelStudios(success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/studios"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
     public class func getPersonnelStudios(personnelId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/studios"
         
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
+    public class func getAllPersonnelPracticeAreas(success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/practiceareas"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
     public class func getPersonnelPracticeAreas(personnelId: Int, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/practiceareas"
+        
+        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
+    public class func getAllPersonnelTerritories(success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "personnel/territories"
         
         callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
@@ -1214,18 +1280,6 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "personnel/\(personnelId)/social"
         
         callAPI(type: .get, name: "getPersonnelSocials", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
-    }
-    
-    public class func getPersonnelSchema(owner: String, info: Any?) {
-        let endPoint = SERVER_URL + "personnel/schema"
-        
-        callAPI(type: .get, name: "getPersonnelSchema", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
-    }
-    
-    public class func getPersonnelSchema(success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
-        let endPoint = SERVER_URL + "personnel/schema"
-        
-        callAPIInBlock(type: .get, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
     }
     
     ////////////////////////////////
