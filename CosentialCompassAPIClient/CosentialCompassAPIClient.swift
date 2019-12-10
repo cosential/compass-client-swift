@@ -1613,4 +1613,30 @@ public class CosentialCompassAPIClient {
     }
     
     ////////////////////////////////
+    
+    //  Document
+    
+    public class func downloadDocument(_ documentPath: String, documentExtension: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "documents/\(documentPath)"
+        
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent("\(documentPath).\(documentExtension)")
+
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+
+        Alamofire.download(endPoint, method: .get, parameters: [:], encoding: URLEncoding.default, headers: AuthHeader, to: destination).response { (response) in
+            debugPrint(response)
+
+            if response.error == nil, let filePath = response.destinationURL?.path {
+                success(filePath as AnyObject)
+            }
+            else {
+                failure("Error" as AnyObject)
+            }
+        }
+    }
+    
+    ////////////////////////////////
 }
