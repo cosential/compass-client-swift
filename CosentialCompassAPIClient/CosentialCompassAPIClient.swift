@@ -855,6 +855,18 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getContactContactCategories", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func addContactContactCategories(contactId: Int, parameters: [[String : Any]], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/contact_category"
+        
+        callAPIWithBodyData(type: "POST", name: "addContactContactCategories", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
+    }
+    
+    public class func deleteContactContactCategories(contactId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/contact_category"
+        
+        callAPI(type: .delete, name: "deleteContactContactCategories", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     //  Firm Organization
     
     public class func getContactFirmOrgs(_ firmOrg: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
