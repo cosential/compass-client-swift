@@ -887,6 +887,12 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyDataInBlock(type: "POST", name: "addContactContactFirmOrgs", endPoint: endPoint, data: parameters, success: success, failure: failure)
     }
     
+    public class func deleteContactContactFirmOrgs(_ contactId: Int, firmOrg: String, success: @escaping (AnyObject) -> Void, failure: @escaping (AnyObject) -> Void) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/\(firmOrg)"
+        
+        callAPIInBlock(type: .delete, endPoint: endPoint, parameters: [:], headers: AuthHeader, success: success, failure: failure)
+    }
+    
     ////////////////////////////////
     
     //  CallLog
