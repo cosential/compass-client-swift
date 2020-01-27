@@ -789,6 +789,12 @@ public class CosentialCompassAPIClient {
         callAPIWithBodyData(type: "POST", name: "addContactContactMailingList", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
     }
     
+    public class func deleteContactContactMailingList(contactId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/Contact_MailingList"
+        
+        callAPI(type: .delete, name: "deleteContactContactMailingList", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     //  Other
     
     public class func getContactOpportunities(contactId: Int, owner: String, info: Any?) {
@@ -821,6 +827,18 @@ public class CosentialCompassAPIClient {
         let endPoint = SERVER_URL + "contacts/\(contactId)/influencelevel"
         
         callAPI(type: .get, name: "getContactContactInfluenceLevels", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
+    public class func addContactContactInfluenceLevels(contactId: Int, parameters: [[String : Any]], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/influencelevel"
+        
+        callAPIWithBodyData(type: "POST", name: "addContactContactInfluenceLevels", endPoint: endPoint, data: parameters, owner: owner, userInfo: info)
+    }
+    
+    public class func deleteContactContactInfluenceLevels(contactId: Int, owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "contacts/\(contactId)/influencelevel"
+        
+        callAPI(type: .delete, name: "deleteContactContactInfluenceLevels", endPoint: endPoint, parameters: [:], headers: AuthHeader, owner: owner, userInfo: info)
     }
     
     //  Category
