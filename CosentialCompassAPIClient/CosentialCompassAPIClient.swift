@@ -964,7 +964,7 @@ public class CosentialCompassAPIClient {
     public class func getContactCallLogs(contactId: Int, parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "calllogs/search"
         var searchParameters = parameters
-        searchParameters["q"] = "Contacts.ContactId:\(contactId)"
+        searchParameters["q"] = "Contacts.Contact.ContactId:\(contactId)"
         
         callAPI(type: .get, name: "getContactCallLogs", endPoint: endPoint, parameters: searchParameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
