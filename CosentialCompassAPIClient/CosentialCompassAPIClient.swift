@@ -36,10 +36,10 @@ public class CosentialCompassAPIClient {
             }
             
             var info = userInfo
-            if (name == "getContacts" || name == "getCompanies" || name == "getOpportunities" || name == "getPersonnel" || name == "getProjects") {
+            if (name == "getMobileContacts" || name == "getContacts" || name == "getCompanies" || name == "getOpportunities" || name == "getPersonnel" || name == "getProjects") {
                 var infoObject = userInfo as! [String : AnyObject]
                 if let responseHeader = response.response?.allHeaderFields {
-                    infoObject["totalCount"] = responseHeader["x-compass-count"] as AnyObject
+                   infoObject["totalCount"] = responseHeader["x-compass-count"] as AnyObject
                 }
                 info = infoObject
             }
@@ -578,6 +578,11 @@ public class CosentialCompassAPIClient {
         callAPI(type: .get, name: "getContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
     
+    public class func getMobileContacts(parameters: [String : Any], owner: String, info: Any?) {
+        let endPoint = SERVER_URL + "mobile/contacts"
+        callAPI(type: .get, name: "getMobileContacts", endPoint: endPoint, parameters: parameters, headers: AuthHeader, owner: owner, userInfo: info)
+    }
+    
     public class func searchContacts(parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "contacts/search"
         
@@ -959,7 +964,7 @@ public class CosentialCompassAPIClient {
     public class func getContactCallLogs(contactId: Int, parameters: [String : Any], owner: String, info: Any?) {
         let endPoint = SERVER_URL + "calllogs/search"
         var searchParameters = parameters
-        searchParameters["q"] = "Contacts.ContactId:\(contactId)"
+        searchParameters["q"] = "Contacts.Contact.ContactId:\(contactId)"
         
         callAPI(type: .get, name: "getContactCallLogs", endPoint: endPoint, parameters: searchParameters, headers: AuthHeader, owner: owner, userInfo: info)
     }
