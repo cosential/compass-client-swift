@@ -6,4 +6,4 @@ pipelines:
       - step:
           name: Mirror Repository To GitHub
           script:
-            - git push -f --mirror git@github.com:cosential/compass-client-csharp.git
+            - git push -f --mirror git@github.com:cosential/compass-client-swift.git
